@@ -19,6 +19,12 @@
 
   <platform name="android" />
 
+  <preference name="Fullscreen" value="true" />
+  <preference name="orientation" value="landscape" /> 
+  <preference name="BackgroundColor" value="0xefefef"/>
+  <preference name="HideKeyboardFormAccessoryBar" value="true"/>
+
+
   <!-- conifgure here: http://docs.phonegap.com/phonegap-build/configuring/ -->
 
 </widget>

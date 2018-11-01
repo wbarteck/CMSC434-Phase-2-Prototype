@@ -1,0 +1,16 @@
+.upper-content{
+    height:50%;
+    margin:0;
+    padding: 12px;
+}
+hr{
+    width: 95%;
+    margin: 2px auto;
+    height: 1px;
+    background-color: #dddddd;
+    border: none;
+}
+.lower-content{
+    margin:0;
+    padding: 12px;
+}

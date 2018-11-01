@@ -3,9 +3,58 @@
 <head>
   <link rel="stylesheet" href="res/OnsenUI-dist-2.10.5/css/onsenui.css">
   <link rel="stylesheet" href="res/OnsenUI-dist-2.10.5/css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="css/main.css">
   <script src="res/OnsenUI-dist-2.10.5/js/onsenui.min.js"></script>
 </head>
 <body>
-  <ons-button onclick="ons.notification.alert('Hello World!')">Click Me</ons-button>
+  <ons-navigator id="myNavigator">
+    <ons-page>
+      <ons-toolbar>
+        <div class="center">Navigator</div>
+      </ons-toolbar>
+  
+      <ons-tabbar position="auto">
+        <ons-tab page="home.html" active icon="ion-home" label="Home"></ons-tab>
+        <ons-tab icon="ion-ios-people" label="People" page="user.html"></ons-tab>
+        <ons-tab icon="ion-ios-cog" label="Settings" page="settings.html"></ons-tab>
+      </ons-tabbar>
+    </ons-page>
+  </ons-navigator>
+
+  <!-- Home Page -->
+  <template id="home.html">
+      <ons-page id="Home">
+        <p style="text-align: center;">
+          This is the first page..
+        </p>
+      </ons-page>
+    </template>
+
+  <!-- Template for one user's home page -->
+  <template id="user.html">
+    <ons-page id="User">
+
+      <div class="content">
+        <div class="upper-content">
+            <img src="" alt="User profile" class="profile-picture"/>
+            
+        </div>
+        <hr>
+        <div class="lower-content">
+          <p>this is a test</p>
+        </div>
+      </div>
+    </ons-page>
+  </template>
+
+  <!-- Settings Page -->
+  <template id="settings.html">
+      <ons-page id="Settings">
+        <p style="text-align: center;">
+          This is the Settings
+        </p>
+      </ons-page>
+    </template>
+
 </body>
 </html>
