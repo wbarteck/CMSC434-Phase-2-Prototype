@@ -1,7 +1,11 @@
 .upper-content{
-    height:50%;
+    height:45%;
     margin:0;
     padding: 12px;
+    display: grid;
+    grid-template-columns: 25% auto auto;
+    grid-template-rows: 50% auto auto;
+    grid-gap: 10px;
 }
 hr{
     width: 95%;
@@ -13,4 +17,26 @@ hr{
 .lower-content{
     margin:0;
     padding: 12px;
+}
+.profile-picture {
+    border-radius: 50%;
+    float: left;
+    padding:12px; 
+    margin:auto auto;
+    height: 100%;
+    width: auto;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.user-header {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.description {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 1.7vh;
 }
