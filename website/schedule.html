@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en">
+
+<head>
+    <title>mySchedule</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<h1></h1>
+<div class="container">
+    <h2>Office Schedule</h2>
+    <p>In the Office Schedule, students will be able to view planned events
+        posted by the occupants of the office. This could include things like
+        office hours and extra study sessions. </p>
+
+    <div class="btn-toolbar" id="toolbar" style="justify-content: center; display: flex;">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal">
+            New Event
+        </button>
+        <!-- <input class="btn  btn-warning" type="submit" value="Edit Event">
+         <input class="btn  btn-danger" type="submit" value="Delete Event"> -->
+    </div>
+
+
+    <br>
+    <br>
+    <table class="table table-bordered" id="schedule">
+        <thead id="scheduleHead">
+        <tr id="days">
+            <th></th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+        </tr>
+        </thead>
+        <tbody id="scheduleBody">
+        <!-- populated by fillEmptySchedule() -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function fillEmptySchedule() {
+        var tableBody = "";
+        var dayStartHour = 8; //MILITARY TIME
+        var hoursOfficeisOpen = 9;
+
+        for (var i = 0; i <= hoursOfficeisOpen; i++) {
+            tableBody = tableBody + "<tr>";
+            for (var j = 0; j <= 7; j++) {
+                tableBody = tableBody + "<td align='right'>"
+                if (j == 0) {
+                    if (dayStartHour + i == 12) {
+                        tableBody = tableBody + (dayStartHour + i) + ":00 PM";
+                    }
+                    else if (dayStartHour + i > 12) {
+                        tableBody = tableBody + (dayStartHour + i - 12) + ":00 PM";
+                    }
+                    else {
+                        tableBody = tableBody + (dayStartHour + i) + ":00 AM";
+                    }
+                }
+                tableBody = tableBody + "</td>"
+            }
+            tableBody = tableBody + "</tr>"
+        }
+        document.getElementById('scheduleBody').innerHTML = tableBody;
+    }
+
+    fillEmptySchedule();
+</script>
+
+
+<!-- Hidden Fields used to create the new Event after modal is filled out -->
+<label for="date" id="selectedDate" hidden></label>
+<label for="time" id="selectedTime" hidden></label>
+
+
+<!-- The Modal -->
+<div class="modal" id="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">New Event</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="modalBody">
+
+                <div class="form-group">
+                    <label for="date">Date: </label>
+
+                    <div class="dropdown">
+                        <button id="date" name="date" class="btn btn-primary dropdown-toggle" type="button"
+                                data-toggle="dropdown">Select Day
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li onmousedown="selectDate(this)"><a href="#">Monday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#">Tuesday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#">Wednesday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#">Thursday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#">Friday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#">Saturday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#">Sunday</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-lg-7">
+                    <label for="time">Time: </label>
+                    <input id="time" name="time" type="time" class="form-control">
+                </div></div>
+
+                <div class="row"></div>
+
+                <div class="row">
+                    <div class="form-group col-xs-3 col-lg-7 ">
+
+                    <label for="eventName">Title: </label>
+                    <input id="eventName" name="eventName" type="text" class="form-control">
+                </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-3 col-lg-7 ">
+                    <label for="eventInfo">Description: </label>
+                    <textarea id="eventInfo" name="eventInfo" class="form-control"></textarea>
+                </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-xs-5 col-lg-1 ">
+                    <label for="important">Important? </label>
+                    <input type="checkbox" class="form-control" id="important">
+                </div>
+                </div>
+                </div>
+
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addEvent()">Create Event
+                </button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearEvent()">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function Event(date, time, name, info, important) {
+        this.date = date;
+        this.time = time;
+        this.name = name;
+        this.info = info;
+        this.important = important;
+    }
+
+    function addEvent() {
+        var dayStartHour = 8; //MILITARY TIME
+
+        var date = document.getElementById('selectedDate').value;
+        var time = document.getElementById('time').value;
+        var name = document.getElementById('eventName').value;
+        var info = document.getElementById('eventInfo').value;
+        var important = document.getElementById('important').checked
+
+        var newEvent = new Event(date, time, name, info);
+        var formatTime = time.split(':');
+        var startHour = formatTime[0];
+        var rowPos = startHour - dayStartHour + 1;
+        console.log(rowPos);
+        var colPos = determineDay(date);
+        console.log(colPos);
+
+        var schedule = document.getElementById('schedule');
+        if(important){
+            schedule.rows[rowPos].cells[colPos].innerHTML = "<button type=\"button\" " +
+                "class=\"btn btn-danger btn-small\" onclick=\"" + displayEvent(newEvent) +
+                "\">" + newEvent.name + "</button>";
+        }
+        else {
+            schedule.rows[rowPos].cells[colPos].innerHTML = "<button type=\"button\" " +
+                "class=\"btn btn-success btn-small\" onclick=\"" + displayEvent(newEvent) +
+                "\">" + newEvent.name + "</button>";
+        }
+
+        console.log("Date: " + newEvent.date + ", Time: " + newEvent.time
+            + " Event Name: " + newEvent.name + ", Event Information: " + newEvent.info);
+
+
+        //resetting the modal after a new event has been entered
+        clearEvent();
+
+    }
+
+    function clearEvent() {
+
+        document.getElementById("modalBody").innerHTML = "";
+        document.getElementById("modalBody").innerHTML = "<div class=\"modal-body\" id=\"modalBody\">\n" +
+            "\n" +
+            "                <div class=\"form-group\">\n" +
+            "                    <label for=\"date\">Date: </label>\n" +
+            "\n" +
+            "                    <div class=\"dropdown\">\n" +
+            "                        <button id=\"date\" name=\"date\" class=\"btn btn-primary dropdown-toggle\" type=\"button\"\n" +
+            "                                data-toggle=\"dropdown\">Select Day\n" +
+            "                            <span class=\"caret\"></span></button>\n" +
+            "                        <ul class=\"dropdown-menu\">\n" +
+            "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Monday</a></li>\n" +
+            "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Tuesday</a></li>\n" +
+            "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Wednesday</a></li>\n" +
+            "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Thursday</a></li>\n" +
+            "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Friday</a></li>\n" +
+            "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Saturday</a></li>\n" +
+            "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Sunday</a></li>\n" +
+            "                        </ul>\n" +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "                <div class=\"row\">\n" +
+            "                <div class=\"form-group col-lg-7\">\n" +
+            "                    <label for=\"time\">Time: </label>\n" +
+            "                    <input id=\"time\" name=\"time\" type=\"time\" class=\"form-control\">\n" +
+            "                </div></div>\n" +
+            "                <div class=\"row\"></div>\n" +
+            "                <br><br> <!--breaks Seperate Date and Time from event descriptions in modal-->\n" +
+            "                <div class=\"row\">\n" +
+            "                    <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
+            "\n" +
+            "                    <label for=\"eventName\">Title: </label>\n" +
+            "                    <br>\n" +
+            "                    <input id=\"eventName\" name=\"eventName\" type=\"text\" class=\"form-control\">\n" +
+            "                </div>\n" +
+            "                </div>\n" +
+            "                <div class=\"row\">\n" +
+            "                    <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
+            "                    <label for=\"eventInfo\">Description: </label>\n" +
+            "                    <br>\n" +
+            "                    <textarea id=\"eventInfo\" name=\"eventInfo\" class=\"form-control\"></textarea>\n" +
+            "                </div>\n" +
+            "                </div>\n" +
+            "\n" +
+            "                <div class=\"row\">\n" +
+            "                    <div class=\"form-group col-xs-5 col-lg-1 \">\n" +
+            "                    <label for=\"important\">Important? </label>\n" +
+            "                    <input type=\"checkbox\" class=\"form-control\" id=\"important\">\n" +
+            "                    <br>\n" +
+            "                </div>\n" +
+            "                </div>\n" +
+            "\n" +
+            "                </div>\n";
+
+    }
+    function selectDate(listItem) {
+        document.getElementById('selectedDate').value = listItem.innerText;
+        document.getElementById('date').innerHTML = listItem.innerText;
+    }
+    function determineDay(date) {
+        if(date == "Monday") return 1;
+        if(date == "Tuesday") return 2;
+        if(date == "Wednesday") return 3;
+        if(date == "Thursday") return 4;
+        if(date == "Friday") return 5;
+        if(date == "Saturday") return 6;
+        if(date == "Sunday") return 7;
+        else return -1;
+    }
+
+    function displayEvent(event) {
+
+    }
+
+    //Saving and loading events should be done once we have a database setup
+    function saveEvent(event) {
+
+    }
+    function loadEvents() {
+
+    }
+</script>
+
+
+</body>
+</html>
+
