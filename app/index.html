@@ -1,67 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="res/OnsenUI-dist-2.10.5/css/onsenui.css">
-  <link rel="stylesheet" href="res/OnsenUI-dist-2.10.5/css/onsen-css-components.min.css">
   <link rel="stylesheet" href="css/main.css">
-  <script src="res/OnsenUI-dist-2.10.5/js/onsenui.min.js"></script>
+  <script src="res/jquery-3.3.1.min.js"></script>
+  <script src="js/index.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" 
+    integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 </head>
+
 <body>
-  <ons-navigator id="myNavigator">
-    <ons-page>
-      <ons-toolbar>
-        <div class="center">Navigator</div>
-      </ons-toolbar>
-  
-      <ons-tabbar position="auto">
-        <ons-tab page="home.html" active icon="ion-home" label="Home"></ons-tab>
-        <ons-tab icon="ion-ios-people" label="Users" page="user.html"></ons-tab>
-        <ons-tab icon="ion-ios-cog" label="Settings" page="settings.html"></ons-tab>
-      </ons-tabbar>
-    </ons-page>
-  </ons-navigator>
-
-  <!-- Home Page -->
-  <template id="home.html">
-      <ons-page id="Home">
-        <p style="text-align: center;">
-          This is the first page..
-        </p>
-      </ons-page>
-    </template>
-
-  <!-- Template for one user's home page -->
-  <template id="user.html">
-    <ons-page id="User">
-
-      <div class="content">
-        <div class="upper-content">
-            <img src="img/default-avatar-1.png" alt="User profile" class="profile-picture">
-            <div class="user-header">
-              <h1>Evan Golub</h1>
-              <h3>Room 0102</h3>
-              <hr>
-              <div class="description">
-              <p>Evan Golub, Ph.D. is a Senior Lecturer and Researcher in the Department of Computer Science at the University of Maryland and an Assistant Director of the Human-Computer Interaction Lab. He has been involved in the creation of, or modification of, numerous courses across the curriculum at the University. His research interests have ranged from artificial intelligence and concurrent programming to theoretical computer science but currently focus on children and technology, educational classroom technologies, ubiquitous computing, and creativity support tools. In these areas he works to understand how technology can be utilized by users across the spectrum of skill and experience bases to achieve a variety of goals. He disseminates his results through submissions to journals and to conferences. </p>
-              <p>His research approach commonly incorporates student involvement; at both the graduate and undergraduate level. He sees his work with students not only as a part of his role as educator but also a valuable part of both the creative and research processes. He has co-authored a textbook on Information Technology, and authored a Visual C++ workbook and Student Response System faculty guidebook, and is an avid photographer and photojournalist. </p>
-              <p>Other text can go here</p>
-            </div>
-            </div>
-        </div>
-        <hr>
-        <div class="lower-content">
-            
-        </div>
+    <div class="sidenav">
+      <div class="sidenav-item">
+        <i class="fas fa-home" style="vertical-align: middle;"></i>
       </div>
-    </ons-page>
-  </template>
-
-  <!-- Settings Page -->
-  <template id="settings.html">
-      <ons-page id="Settings">
-          <p>this is a test</p>
-      </ons-page>
-    </template>
-
+      <div class="sidenav-item">
+        <i class="far fa-calendar-alt"></i>
+      </div>
+    </div>
 </body>
 </html>
