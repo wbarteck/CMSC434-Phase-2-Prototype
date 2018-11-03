@@ -14,35 +14,47 @@
 
       <div class="container">
             <h1 class="header-text">My Message Board</h1>
-
-
       <br>
 
-      <h2><img src="profile-user-silhouette_318-40557.jpg" width="200" height="200" align="left"/>Last Name, First Name <br> Room 0000</h2>
-      <label for="bio">Bio:</label>
-      <form action="#" class="form-check-inline">
-        <p>Hello my name is Professor LASTNAME and I am currently teaching CMSC132 and CMSC132. I received my Bachelor's
-        and Master's degree from the University of Maryland. My hobbies include listening to music, hiking, and swimming.
-        I have 3 kids and 2 dogs that I love very much. </p>
-        <br><br><br>
 
 
-        <div class="form-group" style="justify-content: center; display: flex;">
-            <h4>Status:&nbsp</h4>
-            <textarea class="form-control" rows="1" id="bio" style="width:800px" align="center" ></textarea>
-            &nbsp
-            <button type="button" class="btn btn-primary">
-              <span class="glyphicon glyphicon-pencil"></span> Update
-            </button>
+      <img src="profile-user-silhouette_318-40557.jpg" width="250" height="250" align="left"/>
 
-        </div>
-        <hr>
-        <div class="text-center">
+      <h2 id='profileName'>Last Name, First Name</h2>
+      <h2 id='profileRoom'> Room 0000</h2>
+      <label>Bio:</label>
 
-        <h3> DO NOT DISTURB</h3>
+      <p id='profileBio'> Hello my name is Professor LASTNAME and I am currently teaching CMSC132 and CMSC132. I received my Bachelor's
+      and Master's degree from the University of Maryland. My hobbies include listening to music, hiking, and swimming.
+      I have 3 kids and 2 dogs that I love very much. </p>
+      <br><br><br><br>
 
+      <div class="text-center" id="dnd" >
 
       </div>
+      <div class="btn-toolbar" id="toolbar" style="justify-content: center; display: flex;">
+          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal3">
+              Edit Profile
+          </button>
+          <!-- <input class="btn  btn-warning" type="submit" value="Edit Event">
+           <input class="btn  btn-danger" type="submit" value="Delete Event"> -->
+      </div>
+
+
+
+      <hr><br>
+        <form action="#" class="form-check-inline">
+          <div class="form-group" style="justify-content: center; display: flex;">
+              <h4>Status:&nbsp</h4>
+              <textarea class="form-control" rows="1" id="bio" style="width:800px" align="center" ></textarea>
+              &nbsp
+              <button type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-pencil"></span> Update
+              </button>
+
+          </div>
+        </form>
+
         <hr>
         <br>
 
@@ -76,7 +88,7 @@
 
 
         <hr>
-      </form>
+
 
 
     </div>
@@ -119,17 +131,40 @@
     </div>
 
     <div class="container">
-      <h2> Settings </h2<br><br>
+      <hr>
+      <h2> FAQs </h2>
+      <div class="btn-toolbar" id="toolbar" style="justify-content: center; display: flex;">
+          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal2">
+              Add Question
+          </button>
+      </div>
+      <br>
+      <table class="table table-bordered table-striped" id="schedule">
+          <thead id="scheduleHead">
+            <tr><th>Questions</th><th>Answers</th>
+          </thead>
+          <tbody id="faqBody">
+
+          </tbody>
+      </table>
+
+    </div>
+
+
+
+    <div class="container">
+      <hr>
+      <h2> Settings </h2><br>
 
         <div class="row">
 
-          <div class="col-sm-4">
-            <label class="apps"> Do Not Disturb </label>
+          <div class="col-sm-6">
+            <h7 class="apps"> Do Not Disturb </h7>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <label class="switch">
 
-              <input type="checkbox">
+              <input type="checkbox" id="dndbox" onclick="doNotDisturb()">
               <span class="slider round"> </span>
             </label>
 
@@ -138,63 +173,58 @@
 
       <div class="row">
 
-        <div class="col-sm-4">
-          <label class="apps"> Schedule </label>
+        <div class="col-sm-6">
+          <h7 class="apps"> Schedule </h7>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <label class="switch">
 
-            <input type="checkbox">
+            <input type="checkbox" >
             <span class="slider round"> </span>
           </label>
-        </div>
-        <div class="col-sm-4">
-          <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-pencil"></span> Edit Schedule
-          </button>
         </div>
 
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
-          <label class="apps"> Slideshow </label>
+        <div class="col-sm-6">
+          <h7 class="apps"> Slideshow </h7>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <label class="switch">
 
             <input type="checkbox">
             <span class="slider round"> </span>
           </label>
-        </div>
-        <div class="col-sm-4">
-          <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-pencil"></span> Edit Slideshow
-          </button>
         </div>
       </div>
 
       <div class="row">
 
-        <div class="col-sm-4">
-          <label class="apps"> Messages </label>
+        <div class="col-sm-6">
+          <h7 class="apps"> Messages </h7>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <label class="switch">
 
             <input type="checkbox">
             <span class="slider round"> </span>
           </label>
-        </div>
-        <div class="col-sm-4">
-          <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-pencil"></span> Message Settings
-          </button>
         </div>
 
       </div>
     </div>
+
     <script>
+      function doNotDisturb(){
+        if(document.getElementById('dndbox').checked){
+          document.getElementById('dnd').innerHTML =   '<h3 style="color:white"> DO NOT DISTURB</h3>'
+          document.getElementById('dnd').style.backgroundColor = "red";
+        } else {
+          document.getElementById('dnd').innerHTML='';
+        }
+
+      }
       function fillEmptySchedule() {
           var tableBody = "";
           const dayStartHour = 8; //MILITARY TIME
@@ -229,7 +259,7 @@
     <label for="time" id="selectedTime" hidden></label>
 
 
-    <!-- The Modal -->
+    <!-- The Modal Schedule -->
     <div class="modal" id="modal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -302,6 +332,99 @@
             </div>
         </div>
     </div>
+
+    <!-- The Modal FAQs -->
+    <div class="modal" id="modal2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>New Question</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" onclick="clearEvent()">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id="modalBody2">
+                    <div class="row">
+                        <div class="form-group col-lg-7">
+                            <label>Question: </label>
+                            <input id="question" name="questions" type="text" class="form-control">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-lg-7 ">
+
+                            <label for="eventName">Answer: </label>
+                            <input id="answer" name="answer" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addQuestion()">Add Question</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearQuestion()">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- The Modal Edit Profile -->
+    <div class="modal" id="modal3">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>Edit Profile</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" onclick="clearEvent()">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id="modalBody3">
+                    <div class="row">
+                        <div class="form-group col-lg-7">
+                            <label>First Name: </label>
+                            <input id="first" name="first" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-7">
+                            <label>Last Name: </label>
+                            <input id="last" name="last" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-7">
+                            <label>Room Number: </label>
+                            <input id="roomNum" name="roomNum" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-7 ">
+                            <label for="eventName">Bio: </label>
+                            <textarea id="modalbio" name="modalbio" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="updateInfo()">Update Info</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearInfo()">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <script>
         function formTime(time) {
@@ -381,7 +504,6 @@
         }
         function determineDay(date) {
             date = String(date).trim();
-            console.log("Hello"+date);
             if (date === "Monday") {
               return 1;
             }
@@ -420,11 +542,9 @@
             var formatTime = time.split(':');
             var startHour = formatTime[0];
             var rowPos = startHour - dayStartHour + 1;
-            console.log(date);
             var colPos = determineDay(date);
             var schedule = document.getElementById('schedule');
-            console.log(rowPos);
-            console.log(colPos);
+
             if (important) {
                 schedule.rows[rowPos].cells[colPos].innerHTML = schedule.rows[rowPos].cells[colPos].innerHTML +
                     "<button type=\"button\" " +
@@ -445,9 +565,52 @@
             //resetting the modal after a new event has been entered
             clearEvent();
         }
+
+
         //Saving and loading events should be done once we have a database setup
         function saveEvent(event) {  }
         function loadEvent(event) {  }
+
+        // FAQ Modal Questions
+        function addQuestion(){
+          var question = document.getElementById('question').value;
+          var answer = document.getElementById('answer').value;
+
+          document.getElementById('faqBody').innerHTML =   document.getElementById('faqBody').innerHTML + "<tr><td>" + question + "</td><td>" + answer +"</td></tr>";
+          clearQuestion();
+        }
+        function clearQuestion(){
+            document.getElementById('modalBody2').innerHTML = "<div class=\"row\"><div class=\"form-group col-lg-7\"><label>Question:</label>\n"+
+                    "<input id=\"question\" name=\"questions\" type=\"text\" class=\"form-control\"></div></div><div class=\"row\">\n"+
+                "<div class=\"form-group col-lg-7 \">\n"+  "<label for=\"eventName\">Answer: </label>\n"+
+                    "<input id=\"answer\" name=\"answer\" type=\"text\" class=\"form-control\"></div></div>"
+        }
+
+        // Profile Modal Functions
+
+        function updateInfo(){
+          var firstname= document.getElementById('first').value;
+          var lastname= document.getElementById('last').value;
+          var bio = document.getElementById('modalbio').value;
+          var roomNumber = document.getElementById('roomNum').value;
+
+          console.log(bio);
+          document.getElementById('profileName').innerHTML =lastname+', '+firstname;
+          document.getElementById('profileRoom').innerHTML = "Room " + roomNumber;
+          document.getElementById('profileBio').innerHTML = bio;
+        }
+
+
+        function clearInfo(){
+          document.getElementById('modalBody3').innerHTML = "<div class=\"row\"> <div class=\"form-group col-lg-7\">"+
+                      "<label>First Name: </label><input id=\"first\" name=\"first\" type=\"text\" class=\"form-control\">"+
+                  "</div></div><div class=\"row\"><div class=\"form-group col-lg-7\"><label>Last Name: </label>"+
+                  "<input id=\"last\" name=\"last\" type=\"text\" class=\"form-control\"></div></div><div class=\"row\">"+
+                  "<div class=\"form-group col-lg-7\"><label>Room Number: </label><input id=\"roomNum\" name=\"roomNum\" type=\"text\" class=\"form-control\">" +
+                  "</div></div><div class=\"row\"><div class=\"form-group col-lg-7 \"><label for=\"eventName\">Bio: </label>"+
+                      "<textarea id=\"modalbio\" name=\"modalbio\" class=\"form-control\"></textarea></div></div>";
+        }
+
     </script>
     </body>
 
@@ -476,7 +639,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: red;
+      background-color: lightgrey;
       -webkit-transition: .4s;
       transition: .4s;
     }
@@ -494,11 +657,11 @@
     }
 
     input:checked + .slider {
-      background-color: green;
+      background-color: lightblue;
     }
 
     input:focus + .slider {
-      box-shadow: 0 0 1px green;
+      box-shadow: 0 0 1px lightblue;
     }
 
     input:checked + .slider:before {
