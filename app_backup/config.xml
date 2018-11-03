@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.cmsc434.phase2"
+    versionCode = "10"
+    version     = "1.0.0">
+
+<!-- versionCode is optional and Android only -->
+
+  <name>CMSC434 Phase 2 Messageboard</name>
+
+  <description>
+      Created by William, Raniya, Michael, Steve
+  </description>
+
+  <author href="https://github.com/wbarteck/CMSC434-Phase-2-Prototype" email="wbarteck@gmail.com">
+       William, Raniya, Michael, Steve
+  </author>
+
+  <platform name="android" />
+
+  <preference name="Fullscreen" value="true" />
+  <preference name="orientation" value="portrait" /> 
+  <preference name="BackgroundColor" value="0xefefef"/>
+  <preference name="HideKeyboardFormAccessoryBar" value="true"/>
+
+
+  <!-- conifgure here: http://docs.phonegap.com/phonegap-build/configuring/ -->
+
+</widget>
