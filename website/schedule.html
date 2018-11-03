@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
 <h1></h1>
 <div class="container">
     <h2>Office Schedule</h2>
@@ -32,7 +31,7 @@
 
     <br>
     <br>
-    <table class="table table-bordered" id="schedule">
+    <table class="table table-bordered table-striped" id="schedule">
         <thead id="scheduleHead">
         <tr id="days">
             <th></th>
@@ -52,6 +51,8 @@
 </div>
 
 <script>
+
+
     function fillEmptySchedule() {
         var tableBody = "";
         var dayStartHour = 8; //MILITARY TIME
@@ -95,8 +96,8 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">New Event</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><b>New Event</b></h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="clearEvent()">&times;</button>
             </div>
 
             <!-- Modal body -->
@@ -121,34 +122,35 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="form-group col-lg-7">
-                    <label for="time">Time: </label>
-                    <input id="time" name="time" type="time" class="form-control">
-                </div></div>
+                    <div class="form-group col-lg-7">
+                        <label for="time">Time: </label>
+                        <input id="time" name="time" type="time" class="form-control">
+                    </div>
+                </div>
 
                 <div class="row"></div>
 
                 <div class="row">
                     <div class="form-group col-xs-3 col-lg-7 ">
 
-                    <label for="eventName">Title: </label>
-                    <input id="eventName" name="eventName" type="text" class="form-control">
-                </div>
+                        <label for="eventName">Title: </label>
+                        <input id="eventName" name="eventName" type="text" class="form-control">
+                    </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-3 col-lg-7 ">
-                    <label for="eventInfo">Description: </label>
-                    <textarea id="eventInfo" name="eventInfo" class="form-control"></textarea>
-                </div>
+                        <label for="eventInfo">Description: </label>
+                        <textarea id="eventInfo" name="eventInfo" class="form-control"></textarea>
+                    </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-xs-5 col-lg-1 ">
-                    <label for="important">Important? </label>
-                    <input type="checkbox" class="form-control" id="important">
+                        <label for="important">Important? </label>
+                        <input type="checkbox" class="form-control" id="important">
+                    </div>
                 </div>
-                </div>
-                </div>
+            </div>
 
 
             <!-- Modal footer -->
@@ -163,6 +165,20 @@
 </div>
 
 <script>
+    function formTime(time) {
+        var hour = time.split(":")[0];
+        var min = time.split(":")[1];
+        if (hour > 12) {//PM
+            hour = hour - 12;
+            var formatted = hour + ":" + min + " PM";
+            return formatted;
+        }
+        else {
+            var formatted = hour + ":" + min + " PM";
+            return formatted;
+        }
+    }
+
     function Event(date, time, name, info, important) {
         this.date = date;
         this.time = time;
@@ -179,42 +195,42 @@
         var name = document.getElementById('eventName').value;
         var info = document.getElementById('eventInfo').value;
         var important = document.getElementById('important').checked
-
         var newEvent = new Event(date, time, name, info);
+
+        var stringTime = formTime(time);
         var formatTime = time.split(':');
         var startHour = formatTime[0];
-        var rowPos = startHour - dayStartHour + 1;
-        console.log(rowPos);
-        var colPos = determineDay(date);
-        console.log(colPos);
 
+        var rowPos = startHour - dayStartHour + 1;
+        var colPos = determineDay(date);
         var schedule = document.getElementById('schedule');
-        if(important){
-            schedule.rows[rowPos].cells[colPos].innerHTML = "<button type=\"button\" " +
-                "class=\"btn btn-danger btn-small\" onclick=\"" + displayEvent(newEvent) +
-                "\">" + newEvent.name + "</button>";
+
+        if (important) {
+            schedule.rows[rowPos].cells[colPos].innerHTML = schedule.rows[rowPos].cells[colPos].innerHTML +
+                "<button type=\"button\" " +
+                "class=\"btn btn-danger btn-small\" data-toggle=\"popover\"\n" +
+                "   title=\"" + newEvent.name + "\" data-html ='true' data-content=\"Time: " +
+                stringTime + " \<br><br>Description:<br> " + newEvent.info + "\">" + newEvent.name + "</button>";
         }
         else {
-            schedule.rows[rowPos].cells[colPos].innerHTML = "<button type=\"button\" " +
-                "class=\"btn btn-success btn-small\" onclick=\"" + displayEvent(newEvent) +
-                "\">" + newEvent.name + "</button>";
+            schedule.rows[rowPos].cells[colPos].innerHTML = schedule.rows[rowPos].cells[colPos].innerHTML +
+                "<button type=\"button\" " +
+                "class=\"btn btn-success btn-small\" data-toggle=\"popover\"\n" +
+                "   title=\"" + newEvent.name + "\" data-html='true' data-content=\"Time: " +
+                stringTime + " \<br><br>Description:<br> " + newEvent.info + "\">" + newEvent.name + "</button>";
         }
 
-        console.log("Date: " + newEvent.date + ", Time: " + newEvent.time
-            + " Event Name: " + newEvent.name + ", Event Information: " + newEvent.info);
-
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        }); //This gets the popover to initialize.
 
         //resetting the modal after a new event has been entered
         clearEvent();
-
     }
 
     function clearEvent() {
-
         document.getElementById("modalBody").innerHTML = "";
-        document.getElementById("modalBody").innerHTML = "<div class=\"modal-body\" id=\"modalBody\">\n" +
-            "\n" +
-            "                <div class=\"form-group\">\n" +
+        document.getElementById("modalBody").innerHTML = " <div class=\"form-group\">\n" +
             "                    <label for=\"date\">Date: </label>\n" +
             "\n" +
             "                    <div class=\"dropdown\">\n" +
@@ -237,20 +253,19 @@
             "                    <label for=\"time\">Time: </label>\n" +
             "                    <input id=\"time\" name=\"time\" type=\"time\" class=\"form-control\">\n" +
             "                </div></div>\n" +
+            "\n" +
             "                <div class=\"row\"></div>\n" +
-            "                <br><br> <!--breaks Seperate Date and Time from event descriptions in modal-->\n" +
+            "\n" +
             "                <div class=\"row\">\n" +
             "                    <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
             "\n" +
             "                    <label for=\"eventName\">Title: </label>\n" +
-            "                    <br>\n" +
             "                    <input id=\"eventName\" name=\"eventName\" type=\"text\" class=\"form-control\">\n" +
             "                </div>\n" +
             "                </div>\n" +
             "                <div class=\"row\">\n" +
             "                    <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
             "                    <label for=\"eventInfo\">Description: </label>\n" +
-            "                    <br>\n" +
             "                    <textarea id=\"eventInfo\" name=\"eventInfo\" class=\"form-control\"></textarea>\n" +
             "                </div>\n" +
             "                </div>\n" +
@@ -259,42 +274,31 @@
             "                    <div class=\"form-group col-xs-5 col-lg-1 \">\n" +
             "                    <label for=\"important\">Important? </label>\n" +
             "                    <input type=\"checkbox\" class=\"form-control\" id=\"important\">\n" +
-            "                    <br>\n" +
             "                </div>\n" +
-            "                </div>\n" +
-            "\n" +
-            "                </div>\n";
-
+            "                </div>";
     }
+
     function selectDate(listItem) {
         document.getElementById('selectedDate').value = listItem.innerText;
         document.getElementById('date').innerHTML = listItem.innerText;
     }
+
     function determineDay(date) {
-        if(date == "Monday") return 1;
-        if(date == "Tuesday") return 2;
-        if(date == "Wednesday") return 3;
-        if(date == "Thursday") return 4;
-        if(date == "Friday") return 5;
-        if(date == "Saturday") return 6;
-        if(date == "Sunday") return 7;
-        else return -1;
-    }
-
-    function displayEvent(event) {
-
+        if (date == "Monday") return 1;
+        if (date == "Tuesday") return 2;
+        if (date == "Wednesday") return 3;
+        if (date == "Thursday") return 4;
+        if (date == "Friday") return 5;
+        if (date == "Saturday") return 6;
+        if (date == "Sunday") return 7;
+        else return "Not a Day";
     }
 
     //Saving and loading events should be done once we have a database setup
-    function saveEvent(event) {
+    function saveEvent(event) {  }
+    function loadEvent(event) {  }
 
-    }
-    function loadEvents() {
-
-    }
 </script>
-
-
 </body>
 </html>
 
