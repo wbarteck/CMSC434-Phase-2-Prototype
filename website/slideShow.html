@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>My Messageboard</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div id="mySlider" class="carousel slide" data-ride="carousel">
+
+                <!-- wrapper for slidees-->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <!-- New slide active means first slide -->
+                        <img src="slideShowPictures/sample1.jpg" alt="sample"
+                             style="display: block; margin: auto;">
+                        <div class="carousel-caption"><h4>That time in the Sahara.</h4></div>
+                    </div>
+                    <div class="item">
+                        <!-- New slide -->
+                        <img src="slideShowPictures/sample2.jpg" alt="sample"
+                             style="display: block; margin: auto;">
+                        <div class="carousel-caption"><h4>Under the Sea!</h4></div>
+
+                    </div>
+
+                </div>
+
+                <!-- next previous-->
+
+                <a class="left carousel-control" href="#mySlider" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#mySlider" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-6 col-lg-6">
+            <button class="btn btn-block btn-success"><h4>Add Pictures</h4></button>
+        </div>
+        <div class="col-sm-6 col-lg-6">
+            <button class="btn btn-block btn-Warning" value="Add Pictures"><h4>Edit SlideShow</h4></button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
