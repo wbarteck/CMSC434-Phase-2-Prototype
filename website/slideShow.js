@@ -1,10 +1,9 @@
-
 function addPictures() {
     let pictureArray = document.getElementById('pictures').files;
 
     let pictureList = document.getElementById('pictureList');
 
-    for(let i = 0; i <pictureArray.length; i++){
+    for (let i = 0; i < pictureArray.length; i++) {
         let pic = pictureArray[i];
         let picURL = URL.createObjectURL(pic);
 
@@ -26,7 +25,7 @@ function addPicWithCaption() {
 
     let pictureList = document.getElementById('pictureList');
 
-    for(let i = 0; i <pictureArray.length; i++){
+    for (let i = 0; i < pictureArray.length; i++) {
         let pic = pictureArray[i];
         let picURL = URL.createObjectURL(pic);
 
@@ -44,7 +43,7 @@ function addPicWithCaption() {
 
 function clearAddPicModal() {
     document.getElementById("modalBodyAddPics").innerHTML = "";
-    document.getElementById("modalBodyAddPics").innerHTML ="<div class=\"row\">\n" +
+    document.getElementById("modalBodyAddPics").innerHTML = "<div class=\"row\">\n" +
         "                    <div class=\"form-group col-sm-2 col-lg-1\">\n" +
         "                        <label>Captions? </label>\n" +
         "                        <input id=\"captions\" name=\"captions\" type=\"checkbox\" class=\"form-control\"\n" +
