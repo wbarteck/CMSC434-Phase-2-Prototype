@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!--
+
+<head>
+    <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -10,23 +11,91 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </head>
-    <body onLoad="onLoad()">
-        <script>
-            navigator.notification.beep(2);    
-        </script>
-        <div>
-            Hello there
+    <link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/jquery-mobile.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Hello World</title>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="resources/jquery.js"></script>
+    <script type="text/javascript" src="resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="resources/jquery-mobile.js"></script>
+</head>
+
+<body>
+    <!-- <div class="background"></div> -->
+    <!-- nav area-->
+    <div id="header">
+        <h3 id="header-title" style="text-align: center">Home</h3>
+    </div>
+
+    <!-- main pages container -->
+    <div id="pageCarousel" data-ride="carousel" data-interval="false" class="carousel slide">
+        <div class="carousel-inner">
+            <!-- put pages here: Home, UserView, Calendar, Slideshow,  -->
+            <div id="home" class="main-page item active">
+                <h4 class="home-caption">Faculty in this Office</h4>
+                <div class="home-container">
+                    <div>
+                        <img class="profile-picture" src="./img/default-avatar-1.png">
+                        <p style="text-align: center">Evan Golub</p>
+                    </div>
+                    <div>
+                        <img class="profile-picture" src="./img/default-avatar-2.png">
+                        <p style="text-align: center">Larry Herman</p>
+                    </div>
+                    <div>
+                        <img class="profile-picture" src="./img/default-avatar-3.png">
+                        <p style="text-align: center">Anwar Mamat</p>
+                    </div>
+                    <div>
+                        <img class="profile-picture" src="./img/default-avatar-4.png">
+                        <p style="text-align: center">Meesh</p>
+                    </div>
+                    <div>
+                        <img class="profile-picture" src="./img/default-avatar-5.png">
+                        <p style="text-align: center">Other Professor</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div id="user-view" class="main-page item">
+                <div class="user-container">
+                    <div class="profile">
+                        <img class="profile-picture" src="./img/default-avatar-1.png">
+                        <h2 class="heading">Evan Golub<p><small>Room 0202</small></p></h2>
+                        <p class="description">This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description.</p>
+                    </div>
+                    <div class="active-app">
+                        <h5>Leave a message</h5>
+                        <input type="text" placeholder="email">
+                        <textarea></textarea>
+                        <input type="submit" value="submit">
+                    </div>
+                </div>
+            
+            </div>
+            <div id="calendar" class="main-page item">
+                <p>This is the calendar page</p>
+            </div>
+            <div id="slideshow" class="main-page item">
+            
+                <img src="./img/sample1.jpg" alt="sample" style="margin: auto;">
+                
+                <img src="./img/sample2.jpg" alt="sample" style="margin: auto;">
+                
+                <img src="./img/sample3.jpg" alt="sample" style="margin: auto;">-->
+                
+            </div>
         </div>
-        
-    </body>
+    </div>
+    </div>
+</body>
+
 </html>
