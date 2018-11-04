@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>My Messageboard</title>
+    <title>My SlideShow</title>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
             <div id="mySlider" class="carousel slide" data-ride="carousel">
 
                 <!-- wrapper for slidees-->
-                <div class="carousel-inner">
+                <div class="carousel-inner" id="pictureList">
                     <div class="item active">
                         <!-- New slide active means first slide -->
                         <img src="slideShowPictures/sample1.jpg" alt="sample"
@@ -31,6 +31,13 @@
                         <img src="slideShowPictures/sample2.jpg" alt="sample"
                              style="display: block; margin: auto;">
                         <div class="carousel-caption"><h4>Under the Sea!</h4></div>
+
+                    </div>
+                    <div class="item">
+                        <!-- New slide -->
+                        <img src="slideShowPictures/sample3.jpg" alt="sample"
+                             style="display: block; margin: auto;">
+                        <div class="carousel-caption"><h4>Oh!</h4></div>
 
                     </div>
 
@@ -51,13 +58,252 @@
     <div class="row">
 
         <div class="col-sm-6 col-lg-6">
-            <button class="btn btn-block btn-success"><h4>Add Pictures</h4></button>
+            <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#modalAddPics">
+                Add Pictures
+            </button>
         </div>
         <div class="col-sm-6 col-lg-6">
-            <button class="btn btn-block btn-Warning" value="Add Pictures"><h4>Edit SlideShow</h4></button>
+            <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#modalDeletePics">
+                Delete Pictures
+            </button>
         </div>
     </div>
 </div>
+
+
+<!-- The Modal for adding pictures -->
+<div class="modal" id="modalAddPics">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"><b>Upload Pictures</b></h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="clearAddPicModal()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="modalBodyAddPics">
+
+                <div class="row">
+                    <div class="form-group col-sm-2 col-lg-1">
+                        <label>Captions? </label>
+                        <input id="captions" name="captions" type="checkbox" class="form-control"
+                               onclick="
+
+                        let checkBox = document.getElementById('captions');
+                        var noCapDiv = document.getElementById('noCaptionsDiv');
+                        var capDiv = document.getElementById('captionsDiv');
+                        if(checkBox.checked){
+                            noCapDiv.style.display = 'none';
+                            capDiv.style.display = 'block';
+                        }
+                        else{
+                            noCapDiv.style.display = 'block';
+                            capDiv.style.display = 'none';
+                        }
+                        ">
+                    </div>
+                </div>
+
+
+                <div class="row" id="noCaptionsDiv">
+                    <div class="form-group col-sm-7 col-lg-7 ">
+
+                        <label for="pictures">Pictures: </label>
+                        <label class="btn btn-default btn-file">
+                            <input id="pictures" name="pictures" type="file" multiple
+                                   accept="image/x-png,image/gif,image/jpeg">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row" id="captionsDiv" hidden>
+
+                    <div class="form-group col-sm-6 col-lg-6 ">
+
+                        <label for="captionPicture">Picture: </label>
+                        <label class="btn btn-default btn-file">
+                            <input id="captionPicture" name="captionPicture" type="file" multiple
+                                   accept="image/x-png,image/gif,image/jpeg">
+                        </label>
+                    </div>
+
+
+                    <div class="form-group col-sm-6 col-lg-6">
+                        <label for="captionContent">Caption: </label>
+                        <input class="form-control" type="text" id="captionContent">
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="
+                    if(document.getElementById('captions').checked){
+                        addPicWithCaption();
+                        clearAddPicModal()
+                    }
+                    else{
+                        addPictures();
+                        clearAddPicModal()
+                    }
+                ">Add Pictures
+                </button>
+
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearAddPicModal()">Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- The Modal for deleting pictures -->
+<div class="modal" id="modalDeletePics">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"><b>Delete Pictures</b></h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="clearAddPicModal()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="modalBodyDeletePics">
+
+                <div class="row">
+                    <div class="form-group col-sm-2 col-lg-1">
+                        <label>Not Ready Yet</label>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Delete Pictures
+                </button>
+
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearDeleteModal()">Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    function addPictures() {
+        let pictureArray = document.getElementById('captionPicture').files;
+        let pictureList = document.getElementById('pictureList');
+
+        for(let i = 0; i <pictureArray.length; i++){
+            let pic = pictureArray[i];
+            let picURL = URL.createObjectURL(pic);
+
+            pictureList.innerHTML += " <div class=\"item\">\n" +
+                "                        <!-- New slide -->\n" +
+                "                        <img src=\"" + picURL + "\" alt=\"sample\"\n" +
+                "                           height='300' width='550'  style=\"display: block; margin: auto;\">\n" +
+                "                        <div class=\"carousel-caption\"><h4></h4></div>\n" +
+                "\n" +
+                "                    </div>";
+
+        }
+        $('.carousel').carousel();
+    }
+
+    function addPicWithCaption() {
+        let pictureArray = document.getElementById('captionPicture').files;
+        let caption = document.getElementById('captionContent').value;
+
+        let pictureList = document.getElementById('pictureList');
+
+        for(let i = 0; i <pictureArray.length; i++){
+            let pic = pictureArray[i];
+            let picURL = URL.createObjectURL(pic);
+
+            pictureList.innerHTML += " <div class=\"item\">\n" +
+                "                        <!-- New slide -->\n" +
+                "                        <img src=\"" + picURL + "\" alt=\"sample\"\n" +
+                "                           height='300' width='550'  style=\"display: block; margin: auto;\">\n" +
+                "                        <div class=\"carousel-caption\"><h4>" + caption + "</h4></div>\n" +
+                "\n" +
+                "                    </div>";
+
+        }
+        $('.carousel').carousel();
+    }
+
+    function clearAddPicModal() {
+        document.getElementById("modalBodyAddPics").innerHTML = "";
+        document.getElementById("modalBodyAddPics").innerHTML ="<div class=\"row\">\n" +
+            "                    <div class=\"form-group col-sm-2 col-lg-1\">\n" +
+            "                        <label>Captions? </label>\n" +
+            "                        <input id=\"captions\" name=\"captions\" type=\"checkbox\" class=\"form-control\"\n" +
+            "                               onclick=\"\n" +
+            "\n" +
+            "                        let checkBox = document.getElementById('captions');\n" +
+            "                        var noCapDiv = document.getElementById('noCaptionsDiv');\n" +
+            "                        var capDiv = document.getElementById('captionsDiv');\n" +
+            "                        if(checkBox.checked){\n" +
+            "                            noCapDiv.style.display = 'none';\n" +
+            "                            capDiv.style.display = 'block';\n" +
+            "                        }\n" +
+            "                        else{\n" +
+            "                            noCapDiv.style.display = 'block';\n" +
+            "                            capDiv.style.display = 'none';\n" +
+            "                        }\n" +
+            "                        \">\n" +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "\n" +
+            "\n" +
+            "                <div class=\"row\" id=\"noCaptionsDiv\">\n" +
+            "                    <div class=\"form-group col-sm-7 col-lg-7 \">\n" +
+            "\n" +
+            "                        <label for=\"pictures\">Pictures: </label>\n" +
+            "                        <label class=\"btn btn-default btn-file\">\n" +
+            "                            <input id=\"pictures\" name=\"pictures\" type=\"file\" multiple\n" +
+            "                                   accept=\"image/x-png,image/gif,image/jpeg\">\n" +
+            "                        </label>\n" +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "\n" +
+            "                <div class=\"row\" id=\"captionsDiv\" hidden>\n" +
+            "\n" +
+            "                    <div class=\"form-group col-sm-6 col-lg-6 \">\n" +
+            "\n" +
+            "                        <label for=\"captionPicture\">Picture: </label>\n" +
+            "                        <label class=\"btn btn-default btn-file\">\n" +
+            "                            <input id=\"captionPicture\" name=\"captionPicture\" type=\"file\" multiple\n" +
+            "                                   accept=\"image/x-png,image/gif,image/jpeg\">\n" +
+            "                        </label>\n" +
+            "                    </div>\n" +
+            "\n" +
+            "\n" +
+            "                    <div class=\"form-group col-sm-6 col-lg-6\">\n" +
+            "                        <label for=\"captionContent\">Caption: </label>\n" +
+            "                        <input class=\"form-control\" type=\"text\" id=\"captionContent\">\n" +
+            "                        </label>\n" +
+            "                    </div>\n" +
+            "\n" +
+            "                </div>";
+    }
+
+    function clearDeleteModal() {
+
+    }
+</script>
 
 
 </body>
