@@ -23,6 +23,13 @@ html, body {
     vertical-align: middle;
     line-height: 65px;
 }
+.menubtn {
+    position: absolute;
+    top:0px;
+    right: 12px;
+    text-align: right;
+    display: block;
+}
 .carousel {
     position: absolute;
     width: 100%;
@@ -41,6 +48,10 @@ html, body {
     top: 0px;
     bottom: 0px;
     border-radius: 15px;
+}
+.slide-container {
+    height: 100%;
+    width: 100%;
 }
 .home-container {
     display: grid;
@@ -105,4 +116,11 @@ html, body {
 }
 .active-app textarea {
     height: 50%;
+}
+#slideshow-img {
+    width:100%;
+    position:absolute;
+    top:0;
+    bottom:0;
+    margin:auto;
 }

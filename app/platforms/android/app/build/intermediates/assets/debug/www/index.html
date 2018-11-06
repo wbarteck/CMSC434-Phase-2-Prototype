@@ -18,7 +18,9 @@
 
     <link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="resources/jquery-mobile.css" />
+    <link rel="stylesheet" type="text/css" href="resources/fontawesome-free-5.5.0-web/css/all.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+   
     <title>Hello World</title>
 
     <script type="text/javascript" src="cordova.js"></script>
@@ -32,7 +34,9 @@
     <!-- <div class="background"></div> -->
     <!-- nav area-->
     <div id="header">
-        <h3 id="header-title" style="text-align: center">Home</h3>
+        <h3 id="header-title" style="text-align: center;">Home</h3>
+        <div class="menubtn"><i class="fas fa-bars"></i></div>
+        
     </div>
 
     <!-- main pages container -->
@@ -74,23 +78,39 @@
                     </div>
                     <div class="active-app">
                         <h5>Leave a message</h5>
-                        <input type="text" placeholder="email">
-                        <textarea></textarea>
-                        <input type="submit" value="submit">
+                        <form>
+                                <input type="text" name="name" placeholder="firstname lastname">
+                                <input type="text" name="email" placeholder="terp@terpmail.umd.edu">
+                                <select name="role">
+                                    <option value="student">Student</option>
+                                    <option value="ta">Teaching Assistant</option>
+                                    <option value="faculty">Falculty</option>
+                                </select> 
+                                <textarea rows = "5" name = "description">
+                                    
+                                </textarea>
+                                <button type="submit">Submit</button><br>
+                              </form>
                     </div>
                 </div>
             
             </div>
             <div id="calendar" class="main-page item">
-                <p>This is the calendar page</p>
+                <img src="./img/calendar.PNG" style="width:100%; height:auto;">
             </div>
             <div id="slideshow" class="main-page item">
+                <div class="slide-container">
+                    <img id="slideshow-img" src="./img/sample1.jpg" alt="sample">
+                </div>
+            </div>
+            <div id="faq" class="main-page item">
             
-                <img src="./img/sample1.jpg" alt="sample" style="margin: auto;">
-                
-                <img src="./img/sample2.jpg" alt="sample" style="margin: auto;">
-                
-                <img src="./img/sample3.jpg" alt="sample" style="margin: auto;">-->
+                <b>This is a Question?</b>
+                <p> This is an Answer.</p><br>
+                <b>This is a Question?</b>
+                <p> This is an Answer.</p><br>
+                <b>This is a Question?</b>
+                <p> This is an Answer.</p><br>
                 
             </div>
         </div>

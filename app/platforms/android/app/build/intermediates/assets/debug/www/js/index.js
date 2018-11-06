@@ -1,3 +1,5 @@
+
+
 var app = {
     initialize: function() {
         this.bindEvents();
@@ -36,6 +38,14 @@ $(document).ready(function() {
         var page = $('.item.active').attr('id');
         title.html(jsUcfirst(page));
     });
+
 });
+
+var slideIndex = 0;
+var slides = ["./img/sample1.jpg","./img/sample2.jpg","./img/sample3.jpg"];
+setInterval(function() {
+    slideIndex = (slideIndex + 1) % 2;
+    $("#slideshow-img").attr("src", slides[slideIndex]);
+}, 3000);
 
 function jsUcfirst(string) { return string.charAt(0).toUpperCase() + string.slice(1);}
