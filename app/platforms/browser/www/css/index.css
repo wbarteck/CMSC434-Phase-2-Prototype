@@ -164,6 +164,7 @@ html, body {
     background-color: lightgreen;
 }
 .calendar-table {
+    width: 100%;
     display: table;
     table-layout: fixed;
     margin-bottom: 15px;
