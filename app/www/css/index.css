@@ -136,7 +136,7 @@ html, body {
     line-height: 35px;
     top: -140px;
     color: white;
-    font
+    text-decoration: none;
 }
 #FAQ.main-page {
     overflow: auto;

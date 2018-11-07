@@ -135,6 +135,8 @@ html, body {
     background-color: red;
     line-height: 35px;
     top: -140px;
+    color: white;
+    text-decoration: none;
 }
 #FAQ.main-page {
     overflow: auto;
