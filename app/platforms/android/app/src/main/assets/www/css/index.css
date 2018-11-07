@@ -175,3 +175,6 @@ html, body {
     width: 16.66%;
     height: 55px;
 }
+textarea {
+    height:50%;
+}
