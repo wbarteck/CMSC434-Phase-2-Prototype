@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="resources/jquery-mobile.css" />
     <link rel="stylesheet" type="text/css" href="resources/fontawesome-free-5.5.0-web/css/all.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-   
+
     <title>Hello World</title>
 
     <script type="text/javascript" src="cordova.js"></script>
@@ -36,7 +36,7 @@
     <div id="header">
         <h3 id="header-title" style="text-align: center;">Home</h3>
         <div class="menubtn"><i class="fas fa-bars"></i></div>
-        
+
     </div>
 
     <!-- main pages container -->
@@ -53,10 +53,12 @@
                     <div>
                         <img class="profile-picture" src="./img/default-avatar-2.png">
                         <p style="text-align: center">Larry Herman</p>
+                        <div class="do-not-disturb">Do Not Disturb</div>
                     </div>
                     <div>
                         <img class="profile-picture" src="./img/default-avatar-3.png">
                         <p style="text-align: center">Anwar Mamat</p>
+                        <div class="do-not-disturb">Do Not Disturb</div>
                     </div>
                     <div>
                         <img class="profile-picture" src="./img/default-avatar-4.png">
@@ -66,51 +68,152 @@
                         <img class="profile-picture" src="./img/default-avatar-5.png">
                         <p style="text-align: center">Other Professor</p>
                     </div>
-                    
+
                 </div>
             </div>
             <div id="user-view" class="main-page item">
                 <div class="user-container">
                     <div class="profile">
                         <img class="profile-picture" src="./img/default-avatar-1.png">
-                        <h2 class="heading">Evan Golub<p><small>Room 0202</small></p></h2>
-                        <p class="description">This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description.</p>
+                        <h2 class="heading">Evan Golub<p><small>Room 0202</small></p>
+                        </h2>
+                        <p class="description">	Evan Golub, Ph.D. is a Senior Lecturer and Researcher in the 
+                            Department of Computer Science at the University of Maryland and an Assistant Director 
+                            of the Human-Computer Interaction Lab. He has been involved in the creation of, 
+                            or modification of, numerous courses across the curriculum at the University. 
+                            His research interests have ranged from artificial intelligence and concurrent 
+                            programming to theoretical computer science but currently focus on children and technology, 
+                            educational classroom technologies, ubiquitous computing, and creativity support tools. </p>
                     </div>
                     <div class="active-app">
                         <h5>Leave a message</h5>
                         <form>
+                            <input type="text" name="name" placeholder="firstname lastname">
+                            <input type="text" name="email" placeholder="terp@terpmail.umd.edu">
+                            <select name="role">
+                                <option value="student">Student</option>
+                                <option value="ta">Teaching Assistant</option>
+                                <option value="faculty">Falculty</option>
+                            </select>
+                            <textarea rows="5" name="description">
+
+                                </textarea>
+                            <button type="submit">Submit</button><br>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div id="user-view" class="main-page item">
+                    <div class="user-container">
+                        <div class="profile">
+                            <img class="profile-picture" src="./img/default-avatar-2.png">
+                            <h2 class="heading">Larry Herman<p><small>Room 0202</small></p>
+                            </h2>
+                            <p class="description">	Larry Herman has no description online so this is a filler for the prototype </p>
+                        </div>
+                        <div class="active-app">
+                            <h5>Leave a message</h5>
+                            <form>
                                 <input type="text" name="name" placeholder="firstname lastname">
                                 <input type="text" name="email" placeholder="terp@terpmail.umd.edu">
                                 <select name="role">
                                     <option value="student">Student</option>
                                     <option value="ta">Teaching Assistant</option>
                                     <option value="faculty">Falculty</option>
-                                </select> 
-                                <textarea rows = "5" name = "description">
-                                    
-                                </textarea>
+                                </select>
+                                <textarea rows="5" name="description">
+    
+                                    </textarea>
                                 <button type="submit">Submit</button><br>
-                              </form>
+                            </form>
+                        </div>
                     </div>
+    
                 </div>
-            
-            </div>
             <div id="calendar" class="main-page item">
-                <img src="./img/calendar.PNG" style="width:100%; height:auto;">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th><span class="short">Mon</span></th>
+                            <th><span class="short">Tue</span></th>
+                            <th><span class="short">Wed</span></th>
+                            <th><span class="short">Thr</span></th>
+                            <th><span class="short">Fri</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="hour"><span>8 AM</span></td>
+                            <td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour"><span>9 AM</span></td>
+                            <td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour"><span>10AM</span></td>
+                            <td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour"><span>11AM</span></td>
+                            <td></td><td></td><td></td><td class="event blue">Office Hours</td><td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour"><span>12PM</span></td>
+                            <td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour"><span>1 PM</span></td>
+                            <td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour"><span>2 PM</span></td>
+                            <td></td><td class="event red">Office Hours</td><td></td><td></td><td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour"><span>3 PM</span></td>
+                            <td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour"><span>4 PM</span></td>
+                            <td class="event green">Office Hours</td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour"><span>5 PM</span></td>
+                            <td></td><td></td><td></td><td class="event red">Office Hours</td><td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour"><span>6 PM</span></td>
+                            <td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <span class="red">Larry Herman,</span><span class="green">Anwar Mamat,</span><span class="blue">Evan Golub</span>
             </div>
             <div id="slideshow" class="main-page item">
                 <div class="slide-container">
                     <img id="slideshow-img" src="./img/sample1.jpg" alt="sample">
                 </div>
             </div>
-            <div id="faq" class="main-page item">
-            
-                <b>This is a Question?</b>
-                <p> This is an Answer.</p><br>
-                <b>This is a Question?</b>
-                <p> This is an Answer.</p><br>
-                <b>This is a Question?</b>
-                <p> This is an Answer.</p><br>
+            <div id="FAQ" class="main-page item">
+                <h3>Evan Golub</h3>
+                <b>Will this class be curved?</b>
+                <p> No please stop asking me about this.</p><br>
+                <b>Will there be any extra credit opportunities?</b>
+                <p> There is one extra credit assignment at the end of the semester.</p><br>
+                <b>Can you help me solve this weird bug in my code?</b>
+                <p> Did you go to office hours, consult the internet, and ask your TA?</p><br>
+                <h3>Larry Herman</h3>
+                <b>Can I sit in the back row?</b>
+                <p> No.</p><br>
+                <b>Will you be teaching 250 over the summer as well?</b>
+                <p> That is unclear at the moment, I will make an announcement about that later.</p><br>
+                <h3>TAs</h3>
+                <b>Will there be extra office hours?</b>
+                <p> Only during exam weeks</p><br>
+                
                 
             </div>
         </div>

@@ -124,3 +124,36 @@ html, body {
     bottom:0;
     margin:auto;
 }
+.do-not-disturb {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    text-emphasis: none;
+    text-align: center;
+    background-color: red;
+    line-height: 35px;
+    top: -140px;
+    color: white;
+    font
+}
+#FAQ.main-page {
+    overflow: auto;
+}
+.event {
+    display: inline-block;
+    background-color: gray;
+    border-radius: 15px;
+    height: 100%;
+    width : 100%;
+}
+.red {
+    background-color: lightcoral;
+}
+.blue {
+    background-color: lightblue;
+}
+.green {
+    background-color: lightgreen;
+}
