@@ -50,8 +50,8 @@ $(document).ready(function() {
     });
 
     $('form').submit(function(event){
-        alert(event);
-        
+        navigator.notification.alert('Your message has been sent to this office member', null, 'Message Sent!', 'Great');
+        $('form').trigger('reset');
     });
     
 });
