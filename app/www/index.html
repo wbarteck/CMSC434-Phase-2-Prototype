@@ -45,46 +45,51 @@
             <!-- put pages here: Home, UserView, Calendar, Slideshow,  -->
             <div id="home" class="main-page item active">
                 <h4 class="home-caption">Faculty in this Office</h4>
-                <div class="home-container">
-                    <div>
+                <table class="home-container" style="margin-top: 50px;">
+                    <tr>
+                    <td>
                         <img class="profile-picture" src="./img/default-avatar-1.png">
                         <p style="text-align: center">Evan Golub</p>
-                    </div>
-                    <div>
+                    </td>
+                    <td>
                         <img class="profile-picture" src="./img/default-avatar-2.png">
                         <p style="text-align: center">Larry Herman</p>
                         <div class="do-not-disturb">Do Not Disturb</div>
-                    </div>
-                    <div>
+                    </td></tr>
+                    <tr><td>
                         <img class="profile-picture" src="./img/default-avatar-3.png">
                         <p style="text-align: center">Anwar Mamat</p>
                         <div class="do-not-disturb">Do Not Disturb</div>
-                    </div>
-                    <div>
+                    </td>
+                    <td>
                         <img class="profile-picture" src="./img/default-avatar-4.png">
                         <p style="text-align: center">Meesh</p>
-                    </div>
-                    <div>
-                        <img class="profile-picture" src="./img/default-avatar-5.png">
-                        <p style="text-align: center">Other Professor</p>
-                    </div>
-
-                </div>
+                    </td></tr>
+                    
+                </table>
+                <p style="text-align: center; color: #aaaaaa">Swipe to Navigate</p>
             </div>
             <div id="user-view" class="main-page item">
                 <div class="user-container">
-                    <div class="profile">
-                        <img class="profile-picture" src="./img/default-avatar-1.png">
-                        <h2 class="heading">Evan Golub<p><small>Room 0202</small></p>
-                        </h2>
+                    <table class="profile">
+                        <tr>
+                        <td style="width: 25%;">
+                            <img class="profile-picture" src="./img/default-avatar-1.png">
+                        </td>
+                        <td>
+                            <h2 class="heading">Evan Golub<p><small>Room 0202</small></p>
+                            </h2>
+                        </td>
+                        </tr>
+                        <tr><td colspan="2">
                         <p class="description">	Evan Golub, Ph.D. is a Senior Lecturer and Researcher in the 
                             Department of Computer Science at the University of Maryland and an Assistant Director 
                             of the Human-Computer Interaction Lab. He has been involved in the creation of, 
                             or modification of, numerous courses across the curriculum at the University. 
                             His research interests have ranged from artificial intelligence and concurrent 
                             programming to theoretical computer science but currently focus on children and technology, 
-                            educational classroom technologies, ubiquitous computing, and creativity support tools. </p>
-                    </div>
+                            educational classroom technologies, ubiquitous computing, and creativity support tools. </p></td></tr>
+                    </table>
                     <div class="active-app">
                         <h5>Leave a message</h5>
                         <form>
@@ -106,12 +111,18 @@
             </div>
             <div id="user-view" class="main-page item">
                     <div class="user-container">
-                        <div class="profile">
-                            <img class="profile-picture" src="./img/default-avatar-2.png">
-                            <h2 class="heading">Larry Herman<p><small>Room 0202</small></p>
-                            </h2>
-                            <p class="description">	Larry Herman has no description online so this is a filler for the prototype </p>
-                        </div>
+                            <table class="profile">
+                                    <tr>
+                                    <td style="width: 25%;">
+                                        <img class="profile-picture" src="./img/default-avatar-2.png">
+                                    </td>
+                                    <td>
+                                        <h2 class="heading">Larry Herman<p><small>Room 0202</small></p></h2>
+                                    </td>
+                                    </tr>
+                                    <tr><td colspan="2">
+                                    <p class="description">	This professor has no description online so this is a placeholder </p></td></tr>
+                                </table>
                         <div class="active-app">
                             <h5>Leave a message</h5>
                             <form>
@@ -132,7 +143,7 @@
     
                 </div>
             <div id="calendar" class="main-page item">
-                <table class="table table-bordered table-striped">
+                <table class="calendar-table">
                     <thead>
                         <tr>
                             <th></th>
@@ -189,8 +200,8 @@
                             <td></td><td></td><td></td><td></td><td></td>
                         </tr>
                     </tbody>
-                </table>
-                <span class="red">Larry Herman,  </span><span class="green">Anwar Mamat,  </span><span class="blue">Evan Golub</span>
+                </table><br>
+                <span class="red">Larry Herman,  </span><br><span class="green">Anwar Mamat,  </span><br><span class="blue">Evan Golub</span>
             </div>
             <div id="slideshow" class="main-page item">
                 <div class="slide-container">

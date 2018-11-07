@@ -64,6 +64,9 @@ html, body {
 .home-container div {
     justify-self: center;
 }
+.home-container td {
+    padding: 15px;
+}
 .home-caption {
     display: inline-block;
     position: absolute;
@@ -79,7 +82,7 @@ html, body {
     margin: auto auto;
 }
 .user-container {
-    display: grid;
+    display: table;
     height:100%;
     grid-template-rows: 40% 60%;
     grid-gap: 1em;
@@ -91,10 +94,11 @@ html, body {
     grid-template-rows: 30% auto;
     grid-template-columns: 30% auto;
     grid-gap: 1em;
+    height: 47%;
 }
 .profile .profile-picture {
-    grid-column: 1;
-    grid-row: 1;
+    padding: 12px;
+    display: table-cell;
     margin: auto auto;
 }
 .profile .heading {
@@ -111,6 +115,8 @@ html, body {
     overflow: hidden;
 }
 .active-app {
+    margin-top: 3%;
+    height: 50%;
     background-color: #eeeeee;
     border-radius: 5%;
     padding: 1em;
@@ -143,9 +149,8 @@ html, body {
     overflow: auto;
 }
 .event {
-    display: inline-block;
+    display: table-cell;
     background-color: gray;
-    border-radius: 15px;
     height: 100%;
     width : 100%;
 }
@@ -157,4 +162,16 @@ html, body {
 }
 .green {
     background-color: lightgreen;
+}
+.calendar-table {
+    display: table;
+    table-layout: fixed;
+    margin-bottom: 15px;
+}
+.calendar-table tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+.calendar-table td {
+    width: 16.66%;
+    height: 55px;
 }
