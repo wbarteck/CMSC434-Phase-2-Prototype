@@ -50,6 +50,19 @@ $(document).ready(function() {
     });
 
     $('form').submit(function(event){
+        if (!$(this).find('input[name="name"]').val() ) {
+            navigator.notification.alert('Your name is empty', null, 'Error!', 'Back');
+            return;
+        }
+        if (!$(this).find('input[name="email"]').val() ) {
+            navigator.notification.alert('Your email is empty', null, 'Error!', 'Back');
+            return;
+        }
+        if (!$(this).find('textarea').val() ) {
+            navigator.notification.alert('Your message is empty', null, 'Error!', 'Back');
+            return;
+        }
+
         navigator.notification.alert('Your message has been sent to this office member', null, 'Message Sent!', 'Great');
         $('form').trigger('reset');
     });

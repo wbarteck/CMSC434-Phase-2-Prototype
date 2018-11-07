@@ -94,7 +94,7 @@ html, body {
     grid-template-rows: 30% auto;
     grid-template-columns: 30% auto;
     grid-gap: 1em;
-    height: 47%;
+    height: 42%;
 }
 .profile .profile-picture {
     padding: 12px;
@@ -116,7 +116,7 @@ html, body {
 }
 .active-app {
     margin-top: 3%;
-    height: 50%;
+    height: 55%;
     background-color: #eeeeee;
     border-radius: 5%;
     padding: 1em;
