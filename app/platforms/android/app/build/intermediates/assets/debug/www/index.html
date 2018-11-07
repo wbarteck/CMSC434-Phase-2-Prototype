@@ -47,23 +47,21 @@
                 <h4 class="home-caption">Faculty in this Office</h4>
                 <table class="home-container" style="margin-top: 50px;">
                     <tr>
-                    <td>
+                    <td id="EvanGolub">
                         <img class="profile-picture" src="./img/default-avatar-1.png">
                         <p style="text-align: center">Evan Golub</p>
                     </td>
-                    <td>
+                    <td id="LarryHerman">
                         <img class="profile-picture" src="./img/default-avatar-2.png">
                         <p style="text-align: center">Larry Herman</p>
                         <div class="do-not-disturb">Do Not Disturb</div>
                     </td></tr>
-                    <tr><td>
+                    <tr><td id="AnwarMamat">
                         <img class="profile-picture" src="./img/default-avatar-3.png">
                         <p style="text-align: center">Anwar Mamat</p>
                         <div class="do-not-disturb">Do Not Disturb</div>
                     </td>
                     <td>
-                        <img class="profile-picture" src="./img/default-avatar-4.png">
-                        <p style="text-align: center">Meesh</p>
                     </td></tr>
                     
                 </table>
@@ -93,14 +91,14 @@
                     <div class="active-app">
                         <h5>Leave a message</h5>
                         <form>
-                            <input type="text" name="name" placeholder="firstname lastname">
-                            <input type="text" name="email" placeholder="terp@terpmail.umd.edu">
+                            <input type="text" name="name" placeholder="firstname lastname" required>
+                            <input type="text" name="email" placeholder="terp@terpmail.umd.edu" required>
                             <select name="role">
                                 <option value="student">Student</option>
                                 <option value="ta">Teaching Assistant</option>
                                 <option value="faculty">Falculty</option>
                             </select>
-                            <textarea rows="5" name="description">
+                            <textarea rows="5" name="description" required>
 
                                 </textarea>
                             <button type="submit">Submit</button><br>
@@ -121,19 +119,26 @@
                                     </td>
                                     </tr>
                                     <tr><td colspan="2">
-                                    <p class="description">	This professor has no description online so this is a placeholder </p></td></tr>
+                                    <p class="description">	From his online source:<br>
+                                        This is a very humble and boring webpage, as it currently contains no links. There used to be a link, but something seems to have happened to it. A search for another interesting link will hopefully be undertaken shortly. 
+                                        <br>
+                                        Someone finally guessed what <br>
+                                           "Nuclear Man Here",<br>
+                                           "Menu Here Carnal", and<br>
+                                           "Human Crane Reel" <br>
+                                        have in common. Can you?  </p></td></tr>
                                 </table>
                         <div class="active-app">
                             <h5>Leave a message</h5>
                             <form>
-                                <input type="text" name="name" placeholder="firstname lastname">
-                                <input type="text" name="email" placeholder="terp@terpmail.umd.edu">
+                                <input type="text" name="name" placeholder="firstname lastname" required>
+                                <input type="text" name="email" placeholder="terp@terpmail.umd.edu" required>
                                 <select name="role">
                                     <option value="student">Student</option>
                                     <option value="ta">Teaching Assistant</option>
                                     <option value="faculty">Falculty</option>
                                 </select>
-                                <textarea rows="5" name="description">
+                                <textarea rows="5" name="description" required>
     
                                     </textarea>
                                 <button type="submit">Submit</button><br>
@@ -141,6 +146,56 @@
                         </div>
                     </div>
     
+                </div>
+            <div id="user-view" class="main-page item">
+                <div class="user-container">
+                    <table class="profile">
+                        <tr>
+                            <td style="width: 25%;">
+                                <img class="profile-picture" src="./img/default-avatar-2.png">
+                            </td>
+                            <td>
+                                <h2 class="heading">Anwar Mamat
+                                    <p>
+                                        <small>Room 0202</small>
+                                    </p>
+                                </h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p class="description"> Areas of interest:<br><br>
+
+                                        grid and cluster computing, real-time systems, and wireless sensor networks
+                                        <br><br>
+                                        Teaching
+                                        <br><br>
+                                        CMSC433 Programming Language Technologies and Paradigms: Fall 2018 Spring 2018<br>
+                                        CMSC330 Organization of Programming Languages: Fall 2018 Spring 2018 Fall 2017 Spring 2017 Fall 2016 Spring 2016 Fall 2015 Spring 2015<br> 
+                                        CMSC 216 - Introduction to Computer Systems: Spring 2017 Fall 2015<br>
+                                        CMSC411 Computer Architecture: Spring 2015<br>
+                                        CMSC389P Apache, PHP, MySQL Winter 2015 </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="active-app">
+                        <h5>Leave a message</h5>
+                        <form id="anwarMessage">
+                            <input type="text" name="name" required placeholder="firstname lastname">
+                            <input type="text" name="email" required placeholder="terp@terpmail.umd.edu">
+                            <select name="role">
+                                <option value="student">Student</option>
+                                <option value="ta">Teaching Assistant</option>
+                                <option value="faculty">Falculty</option>
+                            </select>
+                            <textarea rows="5" name="description" required>
+                
+                                                </textarea>
+                            <button type="submit">Submit</button>
+                            <br>
+                        </form>
+                    </div>
+                </div>
                 </div>
             <div id="calendar" class="main-page item">
                 <table class="calendar-table">

@@ -39,6 +39,21 @@ $(document).ready(function() {
         title.html(jsUcfirst(page));
     });
 
+    $('#EvanGolub').on("click", function() {
+        $('.carousel').carousel(1);
+    });
+    $('#LarryHerman').on("click", function() {
+        $('.carousel').carousel(2);
+    });
+    $('#AnwarMamat').on("click", function() {
+        $('.carousel').carousel(3);
+    });
+
+    $('form').submit(function(event){
+        alert(event);
+        
+    });
+    
 });
 
 var slideIndex = 0;
