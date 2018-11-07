@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script src="schedule.js"></script>
+      <script src="slideShow.js"></script>
 
     </head>
     <body>
@@ -18,14 +19,15 @@
       <br>
 
 
+      <div id="profileImage">
+        <img src="profile-user-silhouette_318-40557.jpg" width="250" height="250" align="left"/>
+      </div>
 
-      <img src="profile-user-silhouette_318-40557.jpg" width="250" height="250" align="left"/>
+      <h2 id='profileName'>&nbspLast Name, First Name</h2>
+      <h2 id='profileRoom'>&nbspRoom 0000</h2>
+      <label>&nbsp Bio:</label>
 
-      <h2 id='profileName'>Last Name, First Name</h2>
-      <h2 id='profileRoom'> Room 0000</h2>
-      <label>Bio:</label>
-
-      <p id='profileBio'> Hello my name is Professor LASTNAME and I am currently teaching CMSC132 and CMSC132. I received my Bachelor's
+       <p id='profileBio'>Hello my name is Professor LASTNAME and I am currently teaching CMSC132 and CMSC132. I received my Bachelor's
       and Master's degree from the University of Maryland. My hobbies include listening to music, hiking, and swimming.
       I have 3 kids and 2 dogs that I love very much. </p>
       <br><br><br><br>
@@ -136,7 +138,71 @@
           fillEmptySchedule();
       </script>
 
+      <!-- Slide Show section -->
+      <div class="container">
+        <hr>
+        <h2> Slide Show </h2>
+        <p> This is the slideshow that will be presented when your message board goes to sleep, feel free to add any <picture>
+          pictures and captions that you like! </p>
+        </picture>
+          <div class="row">
+              <div class="col-sm-12">
 
+                  <div id="mySlider" class="carousel slide" data-ride="carousel">
+
+                      <!-- wrapper for slidees-->
+                      <div class="carousel-inner" id="pictureList">
+                          <div class="item active">
+                              <!-- New slide active means first slide -->
+                              <img src="slideShowPictures/sample1.jpg" alt="sample"
+                                   style="display: block; margin: auto;">
+                              <div class="carousel-caption"><h4>That time in the Sahara.</h4></div>
+                          </div>
+                          <div class="item">
+                              <!-- New slide -->
+                              <img src="slideShowPictures/sample2.jpg" alt="sample"
+                                   style="display: block; margin: auto;">
+                              <div class="carousel-caption"><h4>Under the Sea!</h4></div>
+
+                          </div>
+                          <div class="item">
+                              <!-- New slide -->
+                              <img src="slideShowPictures/sample3.jpg" alt="sample"
+                                   style="display: block; margin: auto;">
+                              <div class="carousel-caption"><h4>Oh!</h4></div>
+
+                          </div>
+
+                      </div>
+
+                      <!-- next previous-->
+
+                      <a class="left carousel-control" href="#mySlider" role="button" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                      <a class="right carousel-control" href="#mySlider" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <br>
+              <div class="col-sm-6 col-lg-6">
+                  <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#modalAddPics">
+                      Add Pictures
+                  </button>
+              </div>
+              <div class="col-sm-6 col-lg-6">
+                  <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#modalDeletePics">
+                      Delete Pictures
+                  </button>
+              </div>
+          </div>
+        <br>
+      </div>
+      <!--FAQ Section-->
       <div class="container">
       <hr>
       <h2> FAQs </h2>
@@ -159,16 +225,18 @@
 
 
 
-    <div class="container">
+    <div class="container" >
       <hr>
       <h2> Settings </h2><br>
 
-        <div class="row">
+        <div class="row" >
 
           <div class="col-sm-6">
             <h7 class="apps"> Do Not Disturb </h7>
+            <p>You may turn on Do Not Distrub to turn on the red bar on your messageboard to inform your
+              visitors that you are currently occupied</p>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6" align='center'>
             <label class="switch">
 
               <input type="checkbox" id="dndbox" onclick="doNotDisturb()">
@@ -178,12 +246,13 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" >
 
         <div class="col-sm-6">
-          <h7 class="apps"> Schedule </h7>
+          <h6 class="apps"> Schedule </h6>
+          <p>To enable/disable your schedule from appering on your message board.</p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" align='center'>
           <label class="switch">
 
             <input type="checkbox" >
@@ -194,10 +263,12 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-6">
-          <h7 class="apps"> Slideshow </h7>
+        <div class="col-sm-6" >
+          <h6 class="apps"> Slideshow </h6>
+          <p>You may turn the slideshow feature on/off to enable or disable your photos from appearing when your
+          device is in sleep</p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6"align='center'>
           <label class="switch">
 
             <input type="checkbox">
@@ -208,10 +279,11 @@
 
       <div class="row">
 
-        <div class="col-sm-6">
-          <h7 class="apps"> Messages </h7>
+        <div class="col-sm-6" >
+          <h6 class="apps"> Messages </h6>
+          <p>To enable/disable visitors of the office to leave a message on your messageboard</p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6"align='center'>
           <label class="switch">
 
             <input type="checkbox">
@@ -393,6 +465,16 @@
                             <textarea id="modalbio" name="modalbio" class="form-control"></textarea>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-7 ">
+                            <label>Upload Photo: </label>
+                            <label class="btn btn-default btn-file">
+                                <input id="profilePhoto" name="profilePhoto" type="file"
+                                       accept="image/x-png,image/gif,image/jpeg">
+                            </label>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -400,6 +482,134 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-dismiss="modal" onclick="updateInfo()">Update Info</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearInfo()">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal for adding pictures -->
+    <div class="modal" id="modalAddPics">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>Upload Pictures</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" onclick="clearAddPicModal()">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id="modalBodyAddPics">
+
+                    <div class="row">
+                        <div class="form-group col-sm-2 col-lg-1">
+                            <label>Captions? </label>
+                            <input id="captions" name="captions" type="checkbox" class="form-control"
+                                   onclick="
+
+                            let checkBox = document.getElementById('captions');
+                            var noCapDiv = document.getElementById('noCaptionsDiv');
+                            var capDiv = document.getElementById('captionsDiv');
+                            if(checkBox.checked){
+                                noCapDiv.style.display = 'none';
+                                capDiv.style.display = 'block';
+                            }
+                            else{
+                                noCapDiv.style.display = 'block';
+                                capDiv.style.display = 'none';
+                            }
+                            ">
+                        </div>
+                    </div>
+
+
+                    <div class="row" id="noCaptionsDiv">
+                        <div class="form-group col-sm-7 col-lg-7 ">
+
+                            <label for="pictures">Picture: </label>
+                            <label class="btn btn-default btn-file">
+                                <input id="pictures" name="pictures" type="file" multiple
+                                       accept="image/x-png,image/gif,image/jpeg">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row" id="captionsDiv" hidden>
+
+                        <div class="form-group col-sm-6 col-lg-6 ">
+
+                            <label for="captionPicture">Picture: </label>
+                            <label class="btn btn-default btn-file">
+                                <input id="captionPicture" name="captionPicture" type="file" multiple
+                                       accept="image/x-png,image/gif,image/jpeg">
+                            </label>
+                        </div>
+
+
+                        <div class="form-group col-sm-6 col-lg-6">
+                            <label for="captionContent">Caption: </label>
+                            <input class="form-control" type="text" id="captionContent">
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="
+                        if(document.getElementById('captions').checked){
+                            addPicWithCaption();
+                            clearAddPicModal()
+                        }
+                        else{
+                            addPictures();
+                            clearAddPicModal()
+                        }
+                    ">Add Pictures
+                    </button>
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearAddPicModal()">Close
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal for deleting pictures -->
+    <div class="modal" id="modalDeletePics">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>Delete Pictures</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" onclick="clearAddPicModal()">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id="modalBodyDeletePics">
+
+                    <div class="row">
+                        <div class="form-group col-sm-2 col-lg-1">
+                            <label>Not Ready Yet</label>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Delete Pictures
+                    </button>
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearDeleteModal()">Close
+                    </button>
                 </div>
 
             </div>
@@ -431,11 +641,25 @@
           var lastname= document.getElementById('last').value;
           var bio = document.getElementById('modalbio').value;
           var roomNumber = document.getElementById('roomNum').value;
+          var image = document.getElementById('profilePhoto').files;
 
-          console.log(bio);
-          document.getElementById('profileName').innerHTML =lastname+', '+firstname;
-          document.getElementById('profileRoom').innerHTML = "Room " + roomNumber;
-          document.getElementById('profileBio').innerHTML = bio;
+          if(lastname != '' && firstname != ''){
+            document.getElementById('profileName').innerHTML ='&nbsp'+ lastname+', '+firstname;
+          }
+
+          if(roomNumber != ''){
+            document.getElementById('profileRoom').innerHTML = "&nbspRoom " + roomNumber;
+          }
+          if(bio != ''){
+            document.getElementById('profileBio').innerHTML = bio;
+          }
+
+          if(image.length == 0){
+            document.getElementById('profileImage').innerHTML = '<img src=\"profile-user-silhouette_318-40557.jpg\" width=\"250\" height=\"250\" align=\"left\"/>'
+          } else {
+            let photo = URL.createObjectURL(image[0]);
+            document.getElementById('profileImage').innerHTML = '<img src=\"' + photo +'\"width=\"250\" height=\"250\" align=\"left\"/>'
+          }
         }
 
 
@@ -448,6 +672,8 @@
                   "</div></div><div class=\"row\"><div class=\"form-group col-lg-7 \"><label for=\"eventName\">Bio: </label>"+
                       "<textarea id=\"modalbio\" name=\"modalbio\" class=\"form-control\"></textarea></div></div>";
         }
+
+
 
     </script>
     </body>
@@ -557,16 +783,20 @@
     }
     h2{
       font-family: "Times New Roman", Times, serif;
+      font-weight: bold;
 
     }
     h3{
       font-family: "Times New Roman", Times, serif;
 
     }
+
     label{
       font-family: "Times New Roman", Times, serif;
 
     }
+
+
 
     .dnd {
       font-size: 35px;
