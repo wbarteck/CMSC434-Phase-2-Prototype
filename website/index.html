@@ -49,9 +49,9 @@
         <form action="#" class="form-check-inline">
           <div class="form-group" style="justify-content: center; display: flex;">
               <h4>Status:&nbsp</h4>
-              <textarea class="form-control" rows="1" id="bio" style="width:800px" align="center" ></textarea>
+              <textarea class="form-control" rows="1" id="status" style="width:800px" align="center" >In the office!</textarea>
               &nbsp
-              <button type="button" class="btn btn-primary">
+              <button type="button" class="btn btn-primary" >
                 <span class="glyphicon glyphicon-pencil"></span> Update
               </button>
 
@@ -66,6 +66,7 @@
           <thead>
             <tr>
               <th scope="col">Name</th>
+              <th scope="col">Role</th>
               <th scope="col">Email</th>
               <th scope="col">Message</th>
             </tr>
@@ -73,16 +74,19 @@
           <tbody>
             <tr>
               <td>Mark</td>
+              <td>TA</td>
               <td>mark@umd.edu</td>
-              <td>Slide my exam under the door!</td>
+              <td>Slid my exam under the door!</td>
             </tr>
             <tr>
               <td>Sam</td>
+              <td>Student</td>
               <td>samiam@umd.edu</td>
               <td>I just came to say hi</td>
             </tr>
             <tr>
               <td>Larry</td>
+              <td>Faculty</td>
               <td>larry@umd.edu</td>
               <td>Let me know when you get back!</td>
             </tr>
@@ -217,6 +221,9 @@
             <tr><th>Questions</th><th>Answers</th>
           </thead>
           <tbody id="faqBody">
+            <tr><td>What is your favorite color?</td><td>Blue</td></tr>
+            <tr><td>When is your birthday?</td><td>October 5th</td></tr>
+            <tr><td>When is the last day of classes?</td><td>Never</td></tr>
 
           </tbody>
       </table>
@@ -304,6 +311,7 @@
         }
 
       }
+
     </script>
 
 
@@ -367,13 +375,9 @@
                       </div>
 
                       <div class="row">
-                          <div class="form-group col-xs-5 col-lg-2 ">
-                              <label for="important">Important: </label>
+                          <div class="form-group col-xs-5 col-lg-1 ">
+                              <label for="important">Important? </label>
                               <input type="checkbox" class="form-control" id="important">
-                          </div>
-                          <div class="form-group col-xs-5 col-lg-2 ">
-                              <label for="repeat">Repeat: </label>
-                              <input type="checkbox" class="form-control" id="repeat">
                           </div>
                       </div>
                   </div>
