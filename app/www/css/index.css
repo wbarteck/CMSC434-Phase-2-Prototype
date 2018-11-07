@@ -48,6 +48,7 @@ html, body {
     top: 0px;
     bottom: 0px;
     border-radius: 15px;
+    overflow: auto;
 }
 .slide-container {
     height: 100%;
@@ -142,7 +143,7 @@ html, body {
     overflow: auto;
 }
 .event {
-    display: inline-block;
+    display: table-cell;
     background-color: gray;
     border-radius: 15px;
     height: 100%;
