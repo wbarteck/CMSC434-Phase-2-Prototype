@@ -51,7 +51,7 @@ function Event(date, time, name, info, important, id) {
 
 function clearEvent() {
     document.getElementById("modalBody").innerHTML = "";
-    document.getElementById("modalBody").innerHTML = "    <div class=\"modal-body\" id=\"modalBody\">\n" +
+    document.getElementById("modalBody").innerHTML = "<div class=\"modal-body\" id=\"modalBody\">\n" +
         "\n" +
         "                      <div class=\"form-group\">\n" +
         "                          <label for=\"date\">Date: </label>\n" +
@@ -100,11 +100,11 @@ function clearEvent() {
         "                              <input type=\"checkbox\" class=\"form-control\" id=\"important\">\n" +
         "                          </div>\n" +
         "                          <div class=\"form-group col-xs-5 col-lg-2 \">\n" +
-        "                              <label for=\"repeat\">Repeat </label>\n" +
+        "                              <label for=\"repeat\">Repeat: </label>\n" +
         "                              <input type=\"checkbox\" class=\"form-control\" id=\"repeat\">\n" +
         "                          </div>\n" +
         "                      </div>\n" +
-        "                  </div>";
+        "                  </div>\n";
 }
 
 function selectDate(listItem) {
