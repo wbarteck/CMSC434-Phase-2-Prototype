@@ -2,3 +2,7 @@
 Our executable apk can be found in 
 \app\platforms\android\app\build\outputs\apk\debug\app-debug.apk
 and our website can be found in it's according folder at index.html
+
+The code 
+
+Our webpage can be found in \website\index.html
