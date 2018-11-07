@@ -51,52 +51,60 @@ function Event(date, time, name, info, important, id) {
 
 function clearEvent() {
     document.getElementById("modalBody").innerHTML = "";
-    document.getElementById("modalBody").innerHTML = " <div class=\"form-group\">\n" +
-        "                    <label for=\"date\">Date: </label>\n" +
+    document.getElementById("modalBody").innerHTML = "    <div class=\"modal-body\" id=\"modalBody\">\n" +
         "\n" +
-        "                    <div class=\"dropdown\">\n" +
-        "                        <button id=\"date\" name=\"date\" class=\"btn btn-primary dropdown-toggle\" type=\"button\"\n" +
-        "                                data-toggle=\"dropdown\">Select Day\n" +
-        "                            <span class=\"caret\"></span></button>\n" +
-        "                        <ul class=\"dropdown-menu\">\n" +
-        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Monday</a></li>\n" +
-        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Tuesday</a></li>\n" +
-        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Wednesday</a></li>\n" +
-        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Thursday</a></li>\n" +
-        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Friday</a></li>\n" +
-        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Saturday</a></li>\n" +
-        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#\">Sunday</a></li>\n" +
-        "                        </ul>\n" +
-        "                    </div>\n" +
-        "                </div>\n" +
-        "                <div class=\"row\">\n" +
-        "                <div class=\"form-group col-lg-7\">\n" +
-        "                    <label for=\"time\">Time: </label>\n" +
-        "                    <input id=\"time\" name=\"time\" type=\"time\" class=\"form-control\">\n" +
-        "                </div></div>\n" +
+        "                      <div class=\"form-group\">\n" +
+        "                          <label for=\"date\">Date: </label>\n" +
         "\n" +
-        "                <div class=\"row\"></div>\n" +
+        "                          <div class=\"dropdown\">\n" +
+        "                              <button id=\"date\" name=\"date\" class=\"btn btn-primary dropdown-toggle\" type=\"button\"\n" +
+        "                                      data-toggle=\"dropdown\">Select Day\n" +
+        "                                  <span class=\"caret\"></span></button>\n" +
+        "                              <ul class=\"dropdown-menu\">\n" +
+        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Monday</a></li>\n" +
+        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Tuesday</a></li>\n" +
+        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Wednesday</a></li>\n" +
+        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Thursday</a></li>\n" +
+        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Friday</a></li>\n" +
+        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Saturday</a></li>\n" +
+        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Sunday</a></li>\n" +
+        "                              </ul>\n" +
+        "                          </div>\n" +
+        "                      </div>\n" +
+        "                      <div class=\"row\">\n" +
+        "                          <div class=\"form-group col-lg-7\">\n" +
+        "                              <label for=\"time\">Time: </label>\n" +
+        "                              <input id=\"time\" name=\"time\" type=\"time\" class=\"form-control\">\n" +
+        "                          </div>\n" +
+        "                      </div>\n" +
         "\n" +
-        "                <div class=\"row\">\n" +
-        "                    <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
+        "                      <div class=\"row\"></div>\n" +
         "\n" +
-        "                    <label for=\"eventName\">Title: </label>\n" +
-        "                    <input id=\"eventName\" name=\"eventName\" type=\"text\" class=\"form-control\">\n" +
-        "                </div>\n" +
-        "                </div>\n" +
-        "                <div class=\"row\">\n" +
-        "                    <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
-        "                    <label for=\"eventInfo\">Description: </label>\n" +
-        "                    <textarea id=\"eventInfo\" name=\"eventInfo\" class=\"form-control\"></textarea>\n" +
-        "                </div>\n" +
-        "                </div>\n" +
+        "                      <div class=\"row\">\n" +
+        "                          <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
         "\n" +
-        "                <div class=\"row\">\n" +
-        "                    <div class=\"form-group col-xs-5 col-lg-1 \">\n" +
-        "                    <label for=\"important\">Important? </label>\n" +
-        "                    <input type=\"checkbox\" class=\"form-control\" id=\"important\">\n" +
-        "                </div>\n" +
-        "                </div>";
+        "                              <label for=\"eventName\">Title: </label>\n" +
+        "                              <input id=\"eventName\" name=\"eventName\" type=\"text\" class=\"form-control\">\n" +
+        "                          </div>\n" +
+        "                      </div>\n" +
+        "                      <div class=\"row\">\n" +
+        "                          <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
+        "                              <label for=\"eventInfo\">Description: </label>\n" +
+        "                              <textarea id=\"eventInfo\" name=\"eventInfo\" class=\"form-control\"></textarea>\n" +
+        "                          </div>\n" +
+        "                      </div>\n" +
+        "\n" +
+        "                      <div class=\"row\">\n" +
+        "                          <div class=\"form-group col-xs-5 col-lg-2 \">\n" +
+        "                              <label for=\"important\">Important: </label>\n" +
+        "                              <input type=\"checkbox\" class=\"form-control\" id=\"important\">\n" +
+        "                          </div>\n" +
+        "                          <div class=\"form-group col-xs-5 col-lg-2 \">\n" +
+        "                              <label for=\"repeat\">Repeat </label>\n" +
+        "                              <input type=\"checkbox\" class=\"form-control\" id=\"repeat\">\n" +
+        "                          </div>\n" +
+        "                      </div>\n" +
+        "                  </div>";
 }
 
 function selectDate(listItem) {
@@ -144,6 +152,26 @@ function create() {
     eventID = parseInt(eventID);
     eventID = eventID + 1;
     document.getElementById('eventID').value = eventID;
+
+    if(!date){
+        alert("You need to select a day!");
+        return;
+    }
+    if(!time){
+        alert("Select a time for the event.")
+        return;
+    }
+    if(startHour < dayStartHour || startHour > (dayStartHour + hoursOfficeisOpen)){
+        alert("Select a time within operating hours.");
+        return;
+    }
+    if(!name){
+        alert("Your event needs a title!");
+        return;
+    }
+
+
+
     var newEvent = new Event(date, time, name, info, eventID);
 
     if (important) {
