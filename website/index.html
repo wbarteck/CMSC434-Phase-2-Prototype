@@ -225,6 +225,7 @@
     <hr>
     <h2> Settings </h2><br>
 
+
     <div class="row">
 
         <div class="col-sm-6">
@@ -255,6 +256,39 @@
                 <span class="slider round"> </span>
             </label>
         </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <h6 class="apps"> Schedule Color </h6>
+            <p>Here you can select a unique color for the events in your schedule
+                to differentiate your events from the rest of the faculty in your office</p>
+        </div>
+        <div id="colorPickDiv" style="position:relative;">
+            <div class="dropdown col-sm-6" align="center">
+                <button id="colorPick" name="date"
+                        class="btn btn-secondary dropdown-toggle"
+                        type="button"
+                        data-toggle="dropdown" style="border-radius: 90%">Select Color
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu"
+                    style="position: absolute;
+                            top: 100%; /* Bottom of button */
+                            right: 0;
+                            margin-left: 200px; /* More to the right */">
+                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Blue</a></li>
+                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Light Blue</a></li>
+                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Gray</a></li>
+                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Red</a></li>
+                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Yellow</a></li>
+                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Green</a></li>
+                </ul>
+            </div>
+        </div>
+        <label id="eventColor" hidden></label>
 
     </div>
 
@@ -315,7 +349,7 @@
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title"><b>New Event</b></h4>
-                <button type="button" class="close" data-dismiss="modal" onclick="clearEvent()">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" onclick="clearEventModal()">&times;</button>
             </div>
 
             <!-- Modal body -->
@@ -329,13 +363,13 @@
                                 data-toggle="dropdown">Select Day
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                            <li onmousedown="selectDate(this)"><a href="#">Monday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#">Tuesday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#">Wednesday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#">Thursday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#">Friday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#">Saturday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#">Sunday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#!">Monday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#!">Tuesday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#!">Wednesday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#!">Thursday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#!">Friday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#!">Saturday</a></li>
+                            <li onmousedown="selectDate(this)"><a href="#!">Sunday</a></li>
                         </ul>
                     </div>
                 </div>
@@ -385,7 +419,7 @@
                         //Brings back the event prompt so users can fix error
                  ">Create Event
                 </button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearEvent()">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearEventModal()">Close</button>
             </div>
 
         </div>
@@ -400,7 +434,7 @@
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title"><b>New Question</b></h4>
-                <button type="button" class="close" data-dismiss="modal" onclick="clearEvent()">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" onclick="clearEventModal()">&times;</button>
             </div>
 
             <!-- Modal body -->
@@ -442,7 +476,7 @@
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title"><b>Edit Profile</b></h4>
-                <button type="button" class="close" data-dismiss="modal" onclick="clearEvent()">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" onclick="clearEventModal()">&times;</button>
             </div>
 
             <!-- Modal body -->
@@ -827,3 +861,5 @@
 
 </style>
 </html>
+
+

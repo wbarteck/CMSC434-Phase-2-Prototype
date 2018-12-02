@@ -1,9 +1,10 @@
 const dayStartHour = 8; //MILITARY TIME
 const hoursOfficeisOpen = 10;
+let eventColor = "success"; //Bootstrap button classes
+let eventList = [];
+
 
 function fillEmptySchedule() {
-    const dayStartHour = 8; //MILITARY TIME
-    const hoursOfficeisOpen = 10;
     var tableBody = "";
     for (var i = 0; i <= hoursOfficeisOpen; i++) {
         tableBody = tableBody + "<tr>";
@@ -28,7 +29,6 @@ function fillEmptySchedule() {
 }
 
 
-
 function formTime(time) {
     var hour = time.split(":")[0];
     var min = time.split(":")[1];
@@ -43,77 +43,92 @@ function formTime(time) {
     }
 }
 
-function Event(date, time, name, info, important, id) {
+function Event(date, time, name, info, important, id, colPos, rowPos) {
     this.date = date;
     this.time = time;
     this.name = name;
     this.info = info;
     this.important = important;
     this.id = id;
+    this.colPos = colPos;
+    this.rowPos = rowPos;
+    this.important = important;
 }
 
-function clearEvent() {
+function clearEventModal() {
+    document.getElementById('selectedDate').value = ""; //Resets hidden date field
     document.getElementById("modalBody").innerHTML = "";
-    document.getElementById("modalBody").innerHTML = "<div class=\"modal-body\" id=\"modalBody\">\n" +
+    document.getElementById("modalBody").innerHTML = " <div class=\"modal-body\" id=\"modalBody\">\n" +
         "\n" +
-        "                      <div class=\"form-group\">\n" +
-        "                          <label for=\"date\">Date: </label>\n" +
+        "                <div class=\"form-group\">\n" +
+        "                    <label for=\"date\">Date: </label>\n" +
         "\n" +
-        "                          <div class=\"dropdown\">\n" +
-        "                              <button id=\"date\" name=\"date\" class=\"btn btn-primary dropdown-toggle\" type=\"button\"\n" +
-        "                                      data-toggle=\"dropdown\">Select Day\n" +
-        "                                  <span class=\"caret\"></span></button>\n" +
-        "                              <ul class=\"dropdown-menu\">\n" +
-        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Monday</a></li>\n" +
-        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Tuesday</a></li>\n" +
-        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Wednesday</a></li>\n" +
-        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Thursday</a></li>\n" +
-        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Friday</a></li>\n" +
-        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Saturday</a></li>\n" +
-        "                                  <li onmousedown=\"selectDate(this)\"><a href=\"#\">Sunday</a></li>\n" +
-        "                              </ul>\n" +
-        "                          </div>\n" +
-        "                      </div>\n" +
-        "                      <div class=\"row\">\n" +
-        "                          <div class=\"form-group col-lg-7\">\n" +
-        "                              <label for=\"time\">Time: </label>\n" +
-        "                              <input id=\"time\" name=\"time\" type=\"time\" class=\"form-control\">\n" +
-        "                          </div>\n" +
-        "                      </div>\n" +
+        "                    <div class=\"dropdown\">\n" +
+        "                        <button id=\"date\" name=\"date\" class=\"btn btn-primary dropdown-toggle\" type=\"button\"\n" +
+        "                                data-toggle=\"dropdown\">Select Day\n" +
+        "                            <span class=\"caret\"></span></button>\n" +
+        "                        <ul class=\"dropdown-menu\">\n" +
+        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#!\">Monday</a></li>\n" +
+        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#!\">Tuesday</a></li>\n" +
+        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#!\">Wednesday</a></li>\n" +
+        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#!\">Thursday</a></li>\n" +
+        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#!\">Friday</a></li>\n" +
+        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#!\">Saturday</a></li>\n" +
+        "                            <li onmousedown=\"selectDate(this)\"><a href=\"#!\">Sunday</a></li>\n" +
+        "                        </ul>\n" +
+        "                    </div>\n" +
+        "                </div>\n" +
+        "                <div class=\"row\">\n" +
+        "                    <div class=\"form-group col-lg-7\">\n" +
+        "                        <label for=\"time\">Time: </label>\n" +
+        "                        <input id=\"time\" name=\"time\" type=\"time\" class=\"form-control\">\n" +
+        "                    </div>\n" +
+        "                </div>\n" +
         "\n" +
-        "                      <div class=\"row\"></div>\n" +
+        "                <div class=\"row\"></div>\n" +
         "\n" +
-        "                      <div class=\"row\">\n" +
-        "                          <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
+        "                <div class=\"row\">\n" +
+        "                    <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
         "\n" +
-        "                              <label for=\"eventName\">Title: </label>\n" +
-        "                              <input id=\"eventName\" name=\"eventName\" type=\"text\" class=\"form-control\">\n" +
-        "                          </div>\n" +
-        "                      </div>\n" +
-        "                      <div class=\"row\">\n" +
-        "                          <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
-        "                              <label for=\"eventInfo\">Description: </label>\n" +
-        "                              <textarea id=\"eventInfo\" name=\"eventInfo\" class=\"form-control\"></textarea>\n" +
-        "                          </div>\n" +
-        "                      </div>\n" +
+        "                        <label for=\"eventName\">Title: </label>\n" +
+        "                        <input id=\"eventName\" name=\"eventName\" type=\"text\" class=\"form-control\">\n" +
+        "                    </div>\n" +
+        "                </div>\n" +
+        "                <div class=\"row\">\n" +
+        "                    <div class=\"form-group col-xs-3 col-lg-7 \">\n" +
+        "                        <label for=\"eventInfo\">Description: </label>\n" +
+        "                        <textarea id=\"eventInfo\" name=\"eventInfo\" class=\"form-control\"></textarea>\n" +
+        "                    </div>\n" +
+        "                </div>\n" +
         "\n" +
-        "                      <div class=\"row\">\n" +
-        "                          <div class=\"form-group col-xs-5 col-lg-2 \">\n" +
-        "                              <label for=\"important\">Important: </label>\n" +
-        "                              <input type=\"checkbox\" class=\"form-control\" id=\"important\">\n" +
-        "                          </div>\n" +
-        "                          <div class=\"form-group col-xs-5 col-lg-2 \">\n" +
-        "                              <label for=\"repeat\">Repeat: </label>\n" +
-        "                              <input type=\"checkbox\" class=\"form-control\" id=\"repeat\">\n" +
-        "                          </div>\n" +
-        "                      </div>\n" +
-        "                  </div>\n";
+        "                <div class=\"row\">\n" +
+        "                    <div class=\"form-group col-xs-5 col-lg-2 \">\n" +
+        "                        <label for=\"important\">Important: </label>\n" +
+        "                        <input type=\"checkbox\" class=\"form-control\" id=\"important\">\n" +
+        "                    </div>\n" +
+        "                    <div class=\"form-group col-xs-5 col-lg-2 \">\n" +
+        "                        <label for=\"repeat\">Repeat: </label>\n" +
+        "                        <input type=\"checkbox\" class=\"form-control\" id=\"repeat\">\n" +
+        "                    </div>\n" +
+        "                </div>\n" +
+        "            </div>";
 }
 
 function selectDate(listItem) {
     document.getElementById('selectedDate').value = listItem.innerText;
     document.getElementById('date').innerHTML = listItem.innerText;
+}
 
+function selectColor(listItem) {
+    document.getElementById('colorPick').innerHTML = listItem.innerText;
+    let color = listItem.innerText.trim();
+    if (color === "Blue") eventColor = "primary";
+    else if (color === "Light Blue") eventColor = "info";
+    else if (color === "Gray") eventColor = "secondary";
+    else if (color === "Yellow") eventColor = "warning";
+    else if (color === "Red") eventColor = "danger";
+    else if (color === "Green") eventColor = "success";
+    else return "Not a color";
 }
 
 function determineDay(date) {
@@ -121,15 +136,22 @@ function determineDay(date) {
     if (date === "Monday") return 1;
     else if (date === "Tuesday") return 2;
     else if (date === "Wednesday") return 3;
-    else if (date == "Thursday") return 4;
+    else if (date === "Thursday") return 4;
     else if (date === "Friday") return 5;
-    else if (date == "Saturday") return 6;
-    else if (date == "Sunday") return 7;
+    else if (date === "Saturday") return 6;
+    else if (date === "Sunday") return 7;
     else return "Not a Day";
 }
 
-function deleteTheEvent(event) {
-    //Needs to be done through database
+function deleteTheEvent(e) {
+    console.log(e);
+    for(let i = 0; i<eventList.length; i++){
+        if(eventList[i]== e){
+           eventList[i]="";
+        }
+        fillEmptySchedule();
+        displayEvents();
+    }
 }
 
 function editTheEvent(event) {
@@ -148,37 +170,36 @@ function create() {
     var startHour = formatTime[0];
     var rowPos = startHour - dayStartHour + 1;
     var colPos = determineDay(date);
-    var schedule = document.getElementById('schedule');
 
     var eventID = document.getElementById('eventID').value;
     eventID = parseInt(eventID);
     eventID = eventID + 1;
     document.getElementById('eventID').value = eventID;
 
-    if(!date){
+    if (!date) {
         alert("You need to select a day!");
         return -1;
     }
-    if(!time){
-        alert("Select a time for the event.")
+    if (!time) {
+        alert("Select a time for the event.");
         $('#modal').modal('show'); //Brings back the event prompt so users can fix error
         return -1;
     }
-    if(startHour < dayStartHour || startHour > (dayStartHour + hoursOfficeisOpen)){
-        if(dayStartHour > 12){
+    if (startHour < dayStartHour || startHour > (dayStartHour + hoursOfficeisOpen)) {
+        if (dayStartHour > 12) {
             formattedStartHour = dayStartHour - 12;
             formattedStartHour += " PM";
             formattedEnd = dayStartHour + hoursOfficeisOpen - 12 + " PM";
             alert("Select a time within operating hours. Operating hours are between "
-                + formattedStartHour + " and " + formattedEnd );
+                + formattedStartHour + " and " + formattedEnd);
             $('#modal').modal('show'); //Brings back the event prompt so users can fix error
             return -1;
         }
-        else{
+        else {
             formattedStartHour = dayStartHour;
             formattedStartHour += " AM";
-            if(hoursOfficeisOpen + dayStartHour > 12){
-                endHour = hoursOfficeisOpen +dayStartHour - 12;
+            if (hoursOfficeisOpen + dayStartHour > 12) {
+                endHour = hoursOfficeisOpen + dayStartHour - 12;
                 endHour += " PM";
             }
             else {
@@ -186,50 +207,61 @@ function create() {
                 endHour += " PM";
             }
             alert("Select a time within operating hours. Operating hours are between "
-                + formattedStartHour + " and " + endHour );
+                + formattedStartHour + " and " + endHour);
             $('#modal').modal('show'); //Brings back the event prompt so users can fix error
             return -1;
         }
 
     }
-    if(!name){
+    if (!name) {
         alert("Your event needs a title!");
         $('#modal').modal('show'); //Brings back the event prompt so users can fix error
         return -1;
     }
 
 
-
-    var newEvent = new Event(date, time, name, info, eventID);
-
-    if (important) {
-        schedule.rows[rowPos].cells[colPos].innerHTML = schedule.rows[rowPos].cells[colPos].innerHTML +
-            "<button id=\"event" + eventID + "\" type=\"button\" " +
-            "class=\"btn btn-danger btn-small\" data-toggle=\"popover\"\n" +
-            "   title=\"" + newEvent.name + "\" data-html ='true' data-content=\"Time: " +
-            stringTime + " \<br><br>Description:<br> " + newEvent.info + " \<br><br>" +
-            "<br><button class='btn btn-small btn-warning' onclick='" + editTheEvent(newEvent, eventID) + "'>Edit</button>" +
-            "<button class='btn btn-small btn-danger' onclick='" + deleteTheEvent(eventID) + "'>Delete</button> " +
-
-            "\">" + newEvent.name + "</button>";
-    }
-    else {
-        schedule.rows[rowPos].cells[colPos].innerHTML = schedule.rows[rowPos].cells[colPos].innerHTML +
-            "<button id=\"event" + eventID + "\" type=\"button\" " +
-            "class=\"btn btn-success btn-small\" data-toggle=\"popover\"\n" +
-            "   title=\"" + newEvent.name + "\" data-html ='true' data-content=\"Time: " +
-            stringTime + " \<br><br>Description:<br> " + newEvent.info + " \<br><br>" +
-            "<br><button class='btn btn-small btn-secondary' onclick='" + editTheEvent(newEvent, eventID) + "'>Edit</button>" +
-            "<button class='btn btn-small btn-danger' onclick='" + deleteTheEvent(eventID) + "'>Delete</button> " +
-
-            "\">" + newEvent.name + "</button>";
-    }
-    $(document).ready(function () {
-        $('[data-toggle="popover"]').popover();
-    }); //This gets the popover to initialize.
+    var newEvent = new Event(date, stringTime, name, info, important, eventID, colPos, rowPos);
+    eventList.unshift(newEvent);
+    displayEvents();
     //resetting the modal after a new event has been entered
-    clearEvent();
+    clearEventModal();
 }
+
+function displayEvents() {
+    fillEmptySchedule();//Clears events already in schedule
+
+    for (let i = 0; i < eventList.length; i++) {
+        var schedule = document.getElementById('schedule');
+        let e = eventList[i];
+        let editButton = "<button class='btn btn-small btn-warning' onclick='editTheEvent(e)'>Edit</button>";
+        let deleteButton = "<button class='btn btn-small btn-danger' onclick='deleteTheEvent(e)'>Delete</button>";
+
+        if (eventList[i].important) {
+            schedule.rows[eventList[i].rowPos].cells[eventList[i].colPos].innerHTML +=
+                "<button id=\"event" + eventList[i].id + "\" type=\"button\" " +
+                "class=\"btn btn-" + eventColor + " btn-small\" data-toggle=\"popover\"\n" +
+                "   title=\"" + "!- " + eventList[i].name + " -!" + "\" data-html ='true' data-content=\"Time: " +
+                eventList[i].time + " \<br><br>Description:<br> " + eventList[i].info + " \<br><br>" +
+                "<br>" + editButton + deleteButton +
+                "\">" + "!-" + eventList[i].name + "-!" + "</button>";
+        }
+        else {
+            schedule.rows[eventList[i].rowPos].cells[eventList[i].colPos].innerHTML +=
+                "<button id=\"event" + eventList[i].id + "\" type=\"button\" " +
+                "class=\"btn btn-" + eventColor + " btn-small\" data-toggle=\"popover\"\n" +
+                "   title=\""  + eventList[i].name + "\" data-html ='true' data-content=\"Time: " +
+                eventList[i].time + " \<br><br>Description:<br> " + eventList[i].info + " \<br><br>" +
+                "<br><button class='btn btn-small btn-warning' onclick='editTheEvent(e)'>Edit</button>" +
+                "<button class='btn btn-small btn-danger' onclick='deleteTheEvent(e)'>Delete</button> " +
+
+                "\">" + eventList[i].name + "</button>";
+        }
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        }); //This gets the popover to initialize.
+    }
+}
+
 
 //Saving and loading events should be done once we have a database setup
 function saveEvent(event) {
