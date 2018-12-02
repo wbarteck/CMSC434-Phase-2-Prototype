@@ -1,7 +1,9 @@
 const dayStartHour = 8; //MILITARY TIME
-const hoursOfficeisOpen = 9;
+const hoursOfficeisOpen = 10;
 
 function fillEmptySchedule() {
+    const dayStartHour = 8; //MILITARY TIME
+    const hoursOfficeisOpen = 10;
     var tableBody = "";
     for (var i = 0; i <= hoursOfficeisOpen; i++) {
         tableBody = tableBody + "<tr>";
@@ -24,6 +26,7 @@ function fillEmptySchedule() {
     }
     document.getElementById('scheduleBody').innerHTML = tableBody;
 }
+
 
 
 function formTime(time) {
@@ -148,26 +151,51 @@ function create() {
     var schedule = document.getElementById('schedule');
 
     var eventID = document.getElementById('eventID').value;
-    console.log(eventID);
     eventID = parseInt(eventID);
     eventID = eventID + 1;
     document.getElementById('eventID').value = eventID;
 
     if(!date){
         alert("You need to select a day!");
-        return;
+        return -1;
     }
     if(!time){
         alert("Select a time for the event.")
-        return;
+        $('#modal').modal('show'); //Brings back the event prompt so users can fix error
+        return -1;
     }
     if(startHour < dayStartHour || startHour > (dayStartHour + hoursOfficeisOpen)){
-        alert("Select a time within operating hours.");
-        return;
+        if(dayStartHour > 12){
+            formattedStartHour = dayStartHour - 12;
+            formattedStartHour += " PM";
+            formattedEnd = dayStartHour + hoursOfficeisOpen - 12 + " PM";
+            alert("Select a time within operating hours. Operating hours are between "
+                + formattedStartHour + " and " + formattedEnd );
+            $('#modal').modal('show'); //Brings back the event prompt so users can fix error
+            return -1;
+        }
+        else{
+            formattedStartHour = dayStartHour;
+            formattedStartHour += " AM";
+            if(hoursOfficeisOpen + dayStartHour > 12){
+                endHour = hoursOfficeisOpen +dayStartHour - 12;
+                endHour += " PM";
+            }
+            else {
+                endHour = hoursOfficeisOpen + dayStartHour;
+                endHour += " PM";
+            }
+            alert("Select a time within operating hours. Operating hours are between "
+                + formattedStartHour + " and " + endHour );
+            $('#modal').modal('show'); //Brings back the event prompt so users can fix error
+            return -1;
+        }
+
     }
     if(!name){
         alert("Your event needs a title!");
-        return;
+        $('#modal').modal('show'); //Brings back the event prompt so users can fix error
+        return -1;
     }
 
 
@@ -191,7 +219,7 @@ function create() {
             "class=\"btn btn-success btn-small\" data-toggle=\"popover\"\n" +
             "   title=\"" + newEvent.name + "\" data-html ='true' data-content=\"Time: " +
             stringTime + " \<br><br>Description:<br> " + newEvent.info + " \<br><br>" +
-            "<br><button class='btn btn-small btn-warning' onclick='" + editTheEvent(newEvent, eventID) + "'>Edit</button>" +
+            "<br><button class='btn btn-small btn-secondary' onclick='" + editTheEvent(newEvent, eventID) + "'>Edit</button>" +
             "<button class='btn btn-small btn-danger' onclick='" + deleteTheEvent(eventID) + "'>Delete</button> " +
 
             "\">" + newEvent.name + "</button>";
@@ -203,10 +231,10 @@ function create() {
     clearEvent();
 }
 
-
 //Saving and loading events should be done once we have a database setup
 function saveEvent(event) {
 }
 
 function loadEvent(event) {
 }
+
