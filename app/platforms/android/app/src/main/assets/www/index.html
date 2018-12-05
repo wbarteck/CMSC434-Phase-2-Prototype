@@ -33,19 +33,21 @@
 <body>
     <!-- <div class="background"></div> -->
     <!-- nav area-->
-    <div id="header">
-        <h3 id="header-title" style="text-align: center;">Home</h3>
-        <div class="menubtn"><i class="fas fa-bars"></i></div>
-
-    </div>
+    <table id="header" class="tabs"><tr>
+        <td><button class="tablink tab-active" id="NavHome"><i class="fa fa-home"></i></button></td>
+        <td><button class="tablink" id="NavUsers"><i class="fa fa-users" aria-hidden="true"></i></button></td>
+        <td><button class="tablink" id="NavCalendar"><i class="fa fa-calendar" aria-hidden="true"></i></button></td>
+        <td><button class="tablink" id="NavSlideshow"><i class="fa fa-window-maximize" aria-hidden="true"></i></button></td>
+        <td><button class="tablink" id="NavFAQ"><i class="fa fa-question"></i></button></td>
+    </tr></table>
 
     <!-- main pages container -->
     <div id="pageCarousel" data-ride="carousel" data-interval="false" class="carousel slide">
         <div class="carousel-inner">
             <!-- put pages here: Home, UserView, Calendar, Slideshow,  -->
             <div id="home" class="main-page item active">
-                <h4 class="home-caption">Faculty in this Office</h4>
-                <table class="home-container" style="margin-top: 50px;">
+                <table class="home-container">
+                    <tr><h2 class="home-caption">Faculty in this Office</h2></tr>
                     <tr>
                     <td id="EvanGolub">
                         <img class="profile-picture" src="./img/default-avatar-1.png">

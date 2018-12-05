@@ -23,7 +23,6 @@ var app = {
 app.initialize();
 
 $(document).ready(function() {
-    var title = $('#header-title');
 
     $('.carousel').carousel('pause');
 
@@ -36,7 +35,28 @@ $(document).ready(function() {
 
     $('#pageCarousel').on('slid.bs.carousel', function (e) {
         var page = $('.item.active').attr('id');
-        title.html(jsUcfirst(page));
+        switch(page) {
+            case "home":
+                $(".tablink").removeClass('tab-active');
+                $('#NavHome').addClass('tab-active');
+                break;
+            case "user-view":
+                $(".tablink").removeClass('tab-active');
+                $('#NavUsers').addClass('tab-active');
+                break;
+            case "calendar":
+                $(".tablink").removeClass('tab-active');
+                $('#NavCalendar').addClass('tab-active');
+                break;
+            case "slideshow":
+                $(".tablink").removeClass('tab-active');
+                $('#NavSlideshow').addClass('tab-active');
+                break;
+            case "FAQ":
+                $(".tablink").removeClass('tab-active');
+                $('#NavFAQ').addClass('tab-active');
+                break;
+        }
     });
 
     $('#EvanGolub').on("click", function() {
@@ -47,6 +67,32 @@ $(document).ready(function() {
     });
     $('#AnwarMamat').on("click", function() {
         $('.carousel').carousel(3);
+    });
+    // add more pages for navbar
+    $('#NavHome').on("click", function() {
+        $(".tablink").removeClass('tab-active');
+        $('#NavHome').addClass('tab-active');
+        $('.carousel').carousel(0);
+    });
+    $('#NavUsers').on("click", function() {
+        $(".tablink").removeClass('tab-active');
+        $('#NavUsers').addClass('tab-active');
+        $('.carousel').carousel(1);
+    });
+    $('#NavCalendar').on("click", function() {
+        $(".tablink").removeClass('tab-active');
+        $('#NavCalendar').addClass('tab-active');
+        $('.carousel').carousel(4);
+    });
+    $('#NavSlideshow').on("click", function() {
+        $(".tablink").removeClass('tab-active');
+        $('#NavSlideshow').addClass('tab-active');
+        $('.carousel').carousel(5);
+    });
+    $('#NavFAQ').on("click", function() {
+        $(".tablink").removeClass('tab-active');
+        $('#NavFAQ').addClass('tab-active');
+        $('.carousel').carousel(6);
     });
 
     $('form').submit(function(event){
