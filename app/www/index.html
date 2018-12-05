@@ -47,24 +47,32 @@
             <!-- put pages here: Home, UserView, Calendar, Slideshow,  -->
             <div id="home" class="main-page item active">
                 <table class="home-container">
-                    <tr><h2 class="home-caption">Faculty in this Office</h2></tr>
+                    <tr><h1 class="home-caption">Faculty in this Office - Room 0101 IRB</h1></tr>
                     <tr>
-                    <td id="EvanGolub">
+                    <td id="EvanGolub" class="profile-card">
                         <img class="profile-picture" src="./img/default-avatar-1.png">
-                        <p style="text-align: center">Evan Golub</p>
+                        <div class="profile-info">
+                            <h2 style="text-align: center">Evan Golub</h2>
+                            <h3 class="user-avail">In Office</h3>
+                        </div>
                     </td>
-                    <td id="LarryHerman">
+                    <td id="LarryHerman" class="profile-card">
                         <img class="profile-picture" src="./img/default-avatar-2.png">
-                        <p style="text-align: center">Larry Herman</p>
-                        <div class="do-not-disturb">Do Not Disturb</div>
-                    </td></tr>
-                    <tr><td id="AnwarMamat">
-                        <img class="profile-picture" src="./img/default-avatar-3.png">
-                        <p style="text-align: center">Anwar Mamat</p>
-                        <div class="do-not-disturb">Do Not Disturb</div>
+                        
+                        <div class="profile-info">
+                            <h2 style="text-align: center">Larry Herman</h2>
+                            <h3 class="user-unavail">Not Here</h3>
+                        </div>
+                        
                     </td>
-                    <td>
-                    </td></tr>
+                    <td id="AnwarMamat" class="profile-card">
+                        <img class="profile-picture do-not-disturb" src="./img/default-avatar-3.png">
+                        <div class="profile-info">
+                            <h2 style="text-align: center">Anwar Mamat</h2>
+                            <h3 class="user-dnd">Do Not Disturb</h3>
+                        </div>
+                    </td>
+                    </tr>
                     
                 </table>
                 <p style="text-align: center; color: #aaaaaa">Swipe to Navigate</p>
