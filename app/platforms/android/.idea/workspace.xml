@@ -2974,10 +2974,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="260" />
-    <option name="y" value="80" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="32767" />
+    <option name="y" value="32767" />
+    <option name="width" value="3860" />
+    <option name="height" value="1220" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -3156,7 +3156,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="260" y="80" width="1400" height="1000" extended-state="0" />
+    <frame x="32767" y="32767" width="3860" height="1220" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
@@ -3172,8 +3172,8 @@
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25373134" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.32946634" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08947369" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.2624769" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Theme Preview" order="3" />

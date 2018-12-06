@@ -1,12 +1,14 @@
 html, body {
-    width: 100% !important;
-    height: 100% !important;
+    display: block;
+    width: 100%;
+    top: 0;
+    bottom: 0;
     background-color: #eeeeee !important;
-    
     font-family: 'Roboto-Medium','Open Sans', sans-serif;
+    overflow:hidden;
 }
 p, b {
-    font-size: 1.35em;
+    font-size: 1.65em;
 }
 i {
     font-size: 1.8em;
@@ -70,12 +72,13 @@ table#header {
 .carousel {
     position: relative;
     width: 100%;
-    height:100%;
-    padding: 2vw 2vh;
+    height: 100%;
+    padding: 2em;
     padding-top: 20px;
 }
 .carousel,.main-page,.active, .item {
     height: 100%;
+    margin: 0px;
 }
 
 .carousel-inner{
@@ -85,47 +88,25 @@ table#header {
     top: 0px;
     bottom: 0px;
     border-radius: 15px;
-    padding: 5%;
-    overflow: auto;
     width:100%;
-}
-.slide-container {
-    height: 100%;
-    width: 100%;
+    height:100%;
+    background-color: #fefefe;
 }
 .home-container {
     display: table;
-    justify-content: center;
-    padding-top: 3em;
-}
-.home-container div {
-    justify-self: center;
-}
-.home-container td {
-    padding: 15px;
-}
-.home-caption {
-    display: inline-block;
-    position: absolute;
-    width: 100%;
-    top: 0px;
-    text-align: center !important;
-}
-.profile-card {
-    
+    table-layout: fixed;
+    width:100%;
+    height: 100%;
 }
 .profile-picture {
     display: block;
-    width: 75%;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
     border: solid 3px #cccccc;
-    height: auto;
+    height: 200px;
     margin-bottom: 10px;
-}
-.profile-info {
-   
 }
 .user-avail, .user-unavail, .user-dnd {
     text-align: center;
@@ -142,18 +123,16 @@ table#header {
 }
 .user-container {
     display: table;
+    table-layout: fixed;
     height:100%;
-    grid-template-rows: 40% 60%;
-    grid-gap: 1em;
 }
 .profile {
     background-color: #eeeeee;
     border-radius: 5%;
-    display: grid;
-    grid-template-rows: 30% auto;
-    grid-template-columns: 30% auto;
-    grid-gap: 1em;
     height: 42%;
+}
+.profile-top {
+    height:100px;
 }
 .profile .profile-picture {
     padding: 12px;
@@ -161,15 +140,9 @@ table#header {
     margin: auto auto;
 }
 .profile .heading {
-    grid-column: 2;
-    grid-row: 1;
-
     text-align: center;
 }
 .profile .description {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row: 2;
     padding: 0.5em;
     overflow: hidden;
 }
@@ -183,16 +156,21 @@ table#header {
 .active-app textarea {
     height: 50%;
 }
+.slideshow-container {
+    width: 100%;
+    height: 100%;
+    padding: -5em;
+}
 #slideshow-img {
     width:100%;
-    position:absolute;
-    top:0;
-    bottom:0;
-    margin:auto;
+    height: auto;
 }
 
 .do-not-disturb{ /*or other element you want*/
     border: #ff0000 5px solid;
+}
+.in-office {
+    border: #00aa00 5px solid;
 }
 .do-not-distrub-text {
     font-weight: bold;
@@ -213,6 +191,7 @@ table#header {
 }
 .blue {
     background-color: lightblue;
+    
 }
 .green {
     background-color: lightgreen;
@@ -222,6 +201,7 @@ table#header {
     display: table;
     table-layout: fixed;
     margin-bottom: 15px;
+    font-weight: bold;
 }
 .calendar-table tr:nth-child(odd) {
     background-color: #dddddd;
@@ -229,6 +209,16 @@ table#header {
 .calendar-table td {
     width: 16.66%;
     height: 55px;
+}
+#shortCalendar {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+}
+#shortCalendar tr:nth-child(even) {
+    background: #efefef;
 }
 textarea {
     height:50%;

@@ -24,6 +24,8 @@ app.initialize();
 
 $(document).ready(function() {
 
+    $('#wrapper').css({height: screen.height});
+
     $('.carousel').carousel('pause');
 
     $('.carousel-inner').on('swipeleft', function(e) {
@@ -48,10 +50,6 @@ $(document).ready(function() {
                 $(".tablink").removeClass('tab-active');
                 $('#NavCalendar').addClass('tab-active');
                 break;
-            case "slideshow":
-                $(".tablink").removeClass('tab-active');
-                $('#NavSlideshow').addClass('tab-active');
-                break;
             case "FAQ":
                 $(".tablink").removeClass('tab-active');
                 $('#NavFAQ').addClass('tab-active');
@@ -62,7 +60,7 @@ $(document).ready(function() {
     $('#EvanGolub').on("click", function() {
         $('.carousel').carousel(1);
     });
-    $('#LarryHerman').on("click", function() {
+    $('#JasonFilippou').on("click", function() {
         $('.carousel').carousel(2);
     });
     $('#AnwarMamat').on("click", function() {
@@ -74,25 +72,30 @@ $(document).ready(function() {
         $('#NavHome').addClass('tab-active');
         $('.carousel').carousel(0);
     });
-    $('#NavUsers').on("click", function() {
+    $('#NavUsers1').on("click", function() {
         $(".tablink").removeClass('tab-active');
         $('#NavUsers').addClass('tab-active');
         $('.carousel').carousel(1);
+    });
+    $('#NavUsers2').on("click", function() {
+        $(".tablink").removeClass('tab-active');
+        $('#NavUsers').addClass('tab-active');
+        $('.carousel').carousel(2);
+    });
+    $('#NavUsers3').on("click", function() {
+        $(".tablink").removeClass('tab-active');
+        $('#NavUsers').addClass('tab-active');
+        $('.carousel').carousel(3);
     });
     $('#NavCalendar').on("click", function() {
         $(".tablink").removeClass('tab-active');
         $('#NavCalendar').addClass('tab-active');
         $('.carousel').carousel(4);
     });
-    $('#NavSlideshow').on("click", function() {
-        $(".tablink").removeClass('tab-active');
-        $('#NavSlideshow').addClass('tab-active');
-        $('.carousel').carousel(5);
-    });
     $('#NavFAQ').on("click", function() {
         $(".tablink").removeClass('tab-active');
         $('#NavFAQ').addClass('tab-active');
-        $('.carousel').carousel(6);
+        $('.carousel').carousel(5);
     });
 
     $('form').submit(function(event){
@@ -123,3 +126,4 @@ setInterval(function() {
 }, 3000);
 
 function jsUcfirst(string) { return string.charAt(0).toUpperCase() + string.slice(1);}
+

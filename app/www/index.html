@@ -14,7 +14,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
     <link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="resources/jquery-mobile.css" />
@@ -31,13 +31,15 @@
 </head>
 
 <body>
+    <div id="wrapper">
     <!-- <div class="background"></div> -->
     <!-- nav area-->
     <table id="header" class="tabs"><tr>
         <td><button class="tablink tab-active" id="NavHome"><i class="fa fa-home"></i></button></td>
-        <td><button class="tablink" id="NavUsers"><i class="fa fa-users" aria-hidden="true"></i></button></td>
+        <td><button class="tablink" id="NavUsers1"><i class="fa fa-users" aria-hidden="true"> 1</i></button></td>
+        <td><button class="tablink" id="NavUsers2"><i class="fa fa-users" aria-hidden="true"> 2</i></button></td>
+        <td><button class="tablink" id="NavUsers3"><i class="fa fa-users" aria-hidden="true"> 3</i></button></td>
         <td><button class="tablink" id="NavCalendar"><i class="fa fa-calendar" aria-hidden="true"></i></button></td>
-        <td><button class="tablink" id="NavSlideshow"><i class="fa fa-window-maximize" aria-hidden="true"></i></button></td>
         <td><button class="tablink" id="NavFAQ"><i class="fa fa-question"></i></button></td>
     </tr></table>
 
@@ -47,58 +49,86 @@
             <!-- put pages here: Home, UserView, Calendar, Slideshow,  -->
             <div id="home" class="main-page item active">
                 <table class="home-container">
-                    <tr><h1 class="home-caption">Faculty in this Office - Room 0101 IRB</h1></tr>
+                    <tr><td colspan="3"><h1 style="text-align: center">Faculty in this Office - Room 0101 IRB</h1></td></tr>
                     <tr>
-                    <td id="EvanGolub" class="profile-card">
-                        <img class="profile-picture" src="./img/default-avatar-1.png">
-                        <div class="profile-info">
-                            <h2 style="text-align: center">Evan Golub</h2>
-                            <h3 class="user-avail">In Office</h3>
-                        </div>
-                    </td>
-                    <td id="LarryHerman" class="profile-card">
-                        <img class="profile-picture" src="./img/default-avatar-2.png">
-                        
-                        <div class="profile-info">
-                            <h2 style="text-align: center">Larry Herman</h2>
-                            <h3 class="user-unavail">Not Here</h3>
-                        </div>
-                        
-                    </td>
-                    <td id="AnwarMamat" class="profile-card">
-                        <img class="profile-picture do-not-disturb" src="./img/default-avatar-3.png">
-                        <div class="profile-info">
-                            <h2 style="text-align: center">Anwar Mamat</h2>
-                            <h3 class="user-dnd">Do Not Disturb</h3>
-                        </div>
-                    </td>
+                        <td id="EvanGolub" class="profile-card">
+                            <img class="profile-picture in-office" src="./img/golub-profile.jpg">
+                            <div class="profile-info">
+                                <h2 style="text-align: center">Evan Golub</h2>
+                                <h3 class="user-avail">In Office</h3>
+                            </div>
+                        </td>
+                        <td id="JasonFilippou" class="profile-card">
+                            <img class="profile-picture" src="./img/jason-profile.jpg">
+                            <div class="profile-info">
+                                <h2 style="text-align: center">Jason Filippou</h2>
+                                <h3 class="user-unavail">Not Here</h3>
+                            </div>
+                        </td>
+                        <td id="AnwarMamat" class="profile-card">
+                            <img class="profile-picture do-not-disturb" src="./img/anwar-profile.png">
+                            <div class="profile-info">
+                                <h2 style="text-align: center">Anwar Mamat</h2>
+                                <h3 class="user-dnd">Do Not Disturb</h3>
+                            </div>
+                        </td>
                     </tr>
+                    <!--Put apps + shortcuts here -->
+                    <tr>
+                        <td colspan="3">
+                           <table style="width:100%; height:100%; padding: 15px;">
+                            <tr>
+                                <td>
+                                    <h1>Current Office Hours: </h1>
+                                    <h2>NONE</h2><br>
+                                    <h2> </h2>
+                                </td>
+                                <td style="text-align: right;">
+                                    <h1>Next Office Hours: </h1>
+                                    <h2>CMSC434 - Golub</h2>
+                                    <h2>Starting at 3</h2>
+                                </td>
+                            </tr>
+                           </table>
+                        </td>
+                    </tr>
+                    <tr><td colspan="3">
+                        <h2 style="text-align: center">Slideshow</h2>
+                        <div class="slide-container">
+                            <img id="slideshow-img" src="./img/sample1.jpg" alt="sample">
+                        </div>
+                    </td></tr>
                     
                 </table>
-                <p style="text-align: center; color: #aaaaaa">Swipe to Navigate</p>
+                <!-- <p style="text-align: center; color: #999999">Swipe to Navigate</p> -->
             </div>
             <div id="user-view" class="main-page item">
-                <div class="user-container">
-                    <table class="profile">
-                        <tr>
-                        <td style="width: 25%;">
-                            <img class="profile-picture" src="./img/default-avatar-1.png">
-                        </td>
+                <table class="user-container">
+                    <tr class="profile-top">
                         <td>
-                            <h2 class="heading">Evan Golub<p><small>Room 0202</small></p>
+                            <img class="profile-picture" src="./img/golub-profile.jpg">
+                        </td>
+                        <td colspan="3">
+                            <h2 class="heading">Evan Golub
+                                <p>
+                                    <small>Room 0202</small>
+                                </p>
                             </h2>
                         </td>
-                        </tr>
-                        <tr><td colspan="2">
-                        <p class="description">	Evan Golub, Ph.D. is a Senior Lecturer and Researcher in the 
-                            Department of Computer Science at the University of Maryland and an Assistant Director 
-                            of the Human-Computer Interaction Lab. He has been involved in the creation of, 
-                            or modification of, numerous courses across the curriculum at the University. 
-                            His research interests have ranged from artificial intelligence and concurrent 
-                            programming to theoretical computer science but currently focus on children and technology, 
-                            educational classroom technologies, ubiquitous computing, and creativity support tools. </p></td></tr>
-                    </table>
-                    <div class="active-app">
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <p class="description"> Evan Golub, Ph.D. is a Senior Lecturer and Researcher in the Department of Computer Science at the University
+                                of Maryland and an Assistant Director of the Human-Computer Interaction Lab. He has been involved in
+                                the creation of, or modification of, numerous courses across the curriculum at the University. His research
+                                interests have ranged from artificial intelligence and concurrent programming to theoretical computer
+                                science but currently focus on children and technology, educational classroom technologies, ubiquitous
+                                computing, and creativity support tools. </p>
+                        </td>
+                    </tr>
+                    
+                    <tr class="active-app">
+                        <td colspan="4">
                         <h5>Leave a message</h5>
                         <form>
                             <input type="text" name="name" placeholder="firstname lastname" required>
@@ -108,35 +138,33 @@
                                 <option value="ta">Teaching Assistant</option>
                                 <option value="faculty">Falculty</option>
                             </select>
-                            <textarea rows="15" name="description" required>
-
-                                </textarea>
-                            <button type="submit">Submit</button><br>
-                        </form>
-                    </div>
-                </div>
-
+                            <textarea rows="15" name="description" required></textarea>
+                            <button type="submit">Submit</button>
+                            <br>
+                        </form></td>
+                    </tr>
+                </table>
             </div>
             <div id="user-view" class="main-page item">
                     <div class="user-container">
                             <table class="profile">
                                     <tr>
                                     <td style="width: 25%;">
-                                        <img class="profile-picture" src="./img/default-avatar-2.png">
+                                        <img class="profile-picture" src="./img/jason-profile.jpg">
                                     </td>
                                     <td>
-                                        <h2 class="heading">Larry Herman<p><small>Room 0202</small></p></h2>
+                                        <h2 class="heading">Jason Filippou<p><small>Room 0202</small></p></h2>
                                     </td>
                                     </tr>
                                     <tr><td colspan="2">
-                                    <p class="description">	From his online source:<br>
-                                        This is a very humble and boring webpage, as it currently contains no links. There used to be a link, but something seems to have happened to it. A search for another interesting link will hopefully be undertaken shortly. 
-                                        <br>
-                                        Someone finally guessed what <br>
-                                           "Nuclear Man Here",<br>
-                                           "Menu Here Carnal", and<br>
-                                           "Human Crane Reel" <br>
-                                        have in common. Can you?  </p></td></tr>
+                                    <p class="description">	ason Filippou was born in Athens, Greece, in December 1988. He is a citizen 
+                                        of both Greece and Canada. He holds a BSc in Computer Science from the National and Kapodistrian 
+                                        University of Athens. His thesis, "A Probabilistic Logic Programming Event Calculus" was published 
+                                        in the journal Theory and Practice of Logic Programming (TPLP). He acquired an MSc in Computer 
+                                        Science from the University of Maryland, College Park in December 2014, co-authoring his scholarly 
+                                        paper "Assigning affinity-preserving binary hashcodes to images" with fellow graduate student 
+                                        Varun Manjunatha. Since Fall 2016, he has been a lecturer of introductory courses in the Department 
+                                        of Computer Science as well as the Study Abroad coordinator for the same department.</p></td></tr>
                                 </table>
                         <div class="active-app">
                             <h5>Leave a message</h5>
@@ -162,7 +190,7 @@
                     <table class="profile">
                         <tr>
                             <td style="width: 25%;">
-                                <img class="profile-picture" src="./img/default-avatar-2.png">
+                                <img class="profile-picture" src="./img/anwar-profile.png">
                             </td>
                             <td>
                                 <h2 class="heading">Anwar Mamat
@@ -175,7 +203,6 @@
                         <tr>
                             <td colspan="2">
                                 <p class="description"> Areas of interest:<br><br>
-
                                         grid and cluster computing, real-time systems, and wireless sensor networks
                                         <br><br>
                                         Teaching
@@ -268,11 +295,6 @@
                 </table><br>
                 <span class="red">Larry Herman,  </span><br><span class="green">Anwar Mamat,  </span><br><span class="blue">Evan Golub</span>
             </div>
-            <div id="slideshow" class="main-page item">
-                <div class="slide-container">
-                    <img id="slideshow-img" src="./img/sample1.jpg" alt="sample">
-                </div>
-            </div>
             <div id="FAQ" class="main-page item">
                 <h3>Evan Golub</h3>
                 <b>Will this class be curved?</b>
@@ -295,6 +317,7 @@
         </div>
     </div>
     </div>
+</div>
 </body>
 
 </html>
