@@ -189,17 +189,28 @@ table#header {
 }
 .calendar-table {
     width: 100%;
+    height:90%;
     display: table;
     table-layout: fixed;
     margin-bottom: 15px;
     font-weight: bold;
+    font-size: 1.8em;
+    text-align: center;
+}
+.calendar-table th {
+    background-color: #ccc;
+    text-align: center;
 }
 .calendar-table tr:nth-child(odd) {
     background-color: #dddddd;
 }
 .calendar-table td {
     width: 16.66%;
-    height: 55px;
+    height: 55px !important;
+}
+.calendar-table td:nth-child(1) {
+    background-color: #ccc;
+    width: 8% !important;
 }
 #shortCalendar {
     display: table;
