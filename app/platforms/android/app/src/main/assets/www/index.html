@@ -140,13 +140,13 @@
                             <!-- insert template options ul buttons-->
                             <tr>
                                 <td><h3>Templates:</h3></td>
-                                <td><button><h4>Hello...</h4></button></td>
-                                <td><button><h4>Can I get an Extension...</h4></button></td>
-                                <td><button><h4>Graded Papers left...</h4></button></td>
+                                <td><button type="button" class="template1A"><h4>Hello...</h4></button></td>
+                                <td><button type="button" class="template2A"><h4>Can I get an Extension...</h4></button></td>
+                                <td><button type="button" class="template3A"><h4>Graded Papers left...</h4></button></td>
                             </tr>
                             <!-- end options-->
                             <tr>
-                                <td colspan="4"><textarea rows="12" name="description" required></textarea></td>
+                                <td colspan="4"><textarea rows="12" name="description" required id="textA"></textarea></td>
                             </tr>
                             <tr> 
                                 <td colspan="4"><button type="submit"><h3>Send Message</h3></button></td>
@@ -157,90 +157,203 @@
                 </table>
             </div>
             <div id="user-view" class="main-page item">
-                    <div class="user-container">
-                            <table class="profile">
-                                    <tr>
-                                    <td style="width: 25%;">
-                                        <img class="profile-picture" src="./img/jason-profile.jpg">
-                                    </td>
-                                        <td><h2 class="heading">Jason Filippou<p><small>Room 0202</small></p></h2></td>
-                                    </tr>
-                                    <tr><td colspan="2">
-                                    <p class="description">	ason Filippou was born in Athens, Greece, in December 1988. He is a citizen 
-                                        of both Greece and Canada. He holds a BSc in Computer Science from the National and Kapodistrian 
-                                        University of Athens. His thesis, "A Probabilistic Logic Programming Event Calculus" was published 
-                                        in the journal Theory and Practice of Logic Programming (TPLP). He acquired an MSc in Computer 
-                                        Science from the University of Maryland, College Park in December 2014, co-authoring his scholarly 
-                                        paper "Assigning affinity-preserving binary hashcodes to images" with fellow graduate student 
-                                        Varun Manjunatha. Since Fall 2016, he has been a lecturer of introductory courses in the Department 
-                                        of Computer Science as well as the Study Abroad coordinator for the same department.</p></td></tr>
-                                </table>
-                        <div class="active-app">
-                            <h5>Leave a message</h5>
-                            <form>
-                                <input type="text" name="name" placeholder="firstname lastname" required>
-                                <input type="email" name="email" placeholder="terp@terpmail.umd.edu" required>
-                                <select name="role">
-                                    <option value="student">Student</option>
-                                    <option value="ta">Teaching Assistant</option>
-                                    <option value="faculty">Falculty</option>
-                                </select>
-                                <textarea rows="15" name="description" required></textarea>
-                                <button type="submit"><h3>Send Message</h3></button><br>
-                            </form>
-                        </div>
-                    </div>
-    
-                </div>
-            <div id="user-view" class="main-page item">
-                <div class="user-container">
-                    <table class="profile">
-                        <tr>
-                            <td style="width: 25%;">
-                                <img class="profile-picture" src="./img/anwar-profile.png">
-                            </td>
-                            <td>
-                                <h2 class="heading">Anwar Mamat
-                                    <p>
-                                        <small>Room 0202</small>
-                                    </p>
-                                </h2>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <p class="description"> Areas of interest:<br><br>
-                                        grid and cluster computing, real-time systems, and wireless sensor networks
-                                        <br><br>
-                                        Teaching
-                                        <br><br>
-                                        CMSC433 Programming Language Technologies and Paradigms: Fall 2018 Spring 2018<br>
-                                        CMSC330 Organization of Programming Languages: Fall 2018 Spring 2018 Fall 2017 Spring 2017 Fall 2016 Spring 2016 Fall 2015 Spring 2015<br> 
-                                        CMSC 216 - Introduction to Computer Systems: Spring 2017 Fall 2015<br>
-                                        CMSC411 Computer Architecture: Spring 2015<br>
-                                        CMSC389P Apache, PHP, MySQL Winter 2015 </p>
-                            </td>
-                        </tr>
-                    </table>
-                    <div class="active-app">
-                        <h5>Leave a message</h5>
-                        <form id="anwarMessage">
-                            <input type="text" name="name" required placeholder="firstname lastname">
-                            <input type="email" name="email" required placeholder="terp@terpmail.umd.edu">
-                            <select name="role">
-                                <option value="student">Student</option>
-                                <option value="ta">Teaching Assistant</option>
-                                <option value="faculty">Falculty</option>
-                            </select>
-                            <textarea rows="15" name="description" required>
-                
-                                                </textarea>
-                            <button type="submit">Submit</button>
+                <table class="user-container profile">
+                    <tr class="profile-top">
+                        <td>
+                            <img class="profile-picture" src="./img/jason-profile.jpg">
+                        </td>
+                        <td colspan="2">
+                            <h2 class="heading">Jason Filippou
+                                <p>
+                                    <small>Room 0202</small>
+                                </p>
+                            </h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" rowspan="2">
                             <br>
-                        </form>
-                    </div>
-                </div>
-                </div>
+                            <p class="description"> Jason Filippou was born in Athens, Greece, in December 1988. He is a citizen of both Greece and Canada. He
+                                holds a BSc in Computer Science from the National and Kapodistrian University of Athens. His thesis,
+                                "A Probabilistic Logic Programming Event Calculus" was published in the journal Theory and Practice of
+                                Logic Programming (TPLP). He acquired an MSc in Computer Science from the University of Maryland, College
+                                Park in December 2014, co-authoring his scholarly paper "Assigning affinity-preserving binary hashcodes
+                                to images" with fellow graduate student Varun Manjunatha. Since Fall 2016, he has been a lecturer of
+                                introductory courses in the Department of Computer Science as well as the Study Abroad coordinator for
+                                the same department.</p>
+                        </td>
+                    </tr>
+                    <tr></tr>
+            
+                    <tr class="active-app">
+                        <td colspan="3" rowspan="2">
+                            <h2 class="heading">Leave a Message</h2>
+                            <form>
+                                <table style="table-layout: fixed; width:100%; height:100%;">
+                                    <tr>
+                                        <td colspan="2">
+                                            <input type="text" name="name" placeholder="firstName lastName" required style="text-align: center">
+                                        </td>
+                                        <td colspan="2">
+                                            <input type="email" name="email" placeholder="terp@terpmail.umd.edu" required style="text-align: center">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">
+                                            <label for="role">
+                                                <h3>Who Are You?</h3>
+                                            </label>
+                                        </td>
+                                        <td colspan="3">
+                                            <select name="role" id="role" style="width:100%; font-size: 1.8em;">
+                                                <option value="Student">Student</option>
+                                                <option value="TA">Teaching Assistant</option>
+                                                <option value="Faculty">Falculty</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <!-- insert template options ul buttons-->
+                                    <tr>
+                                        <td>
+                                            <h3>Templates:</h3>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="template1B">
+                                                <h4>Hello...</h4>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="template2B">
+                                                <h4>Can I get an Extension...</h4>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="template3B">
+                                                <h4>Graded Papers left...</h4>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <!-- end options-->
+                                    <tr>
+                                        <td colspan="4">
+                                            <textarea rows="12" name="description" required id="textB"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <button type="submit">
+                                                <h3>Send Message</h3>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <br>
+                                </table>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            </div>
+            <div id="user-view" class="main-page item">
+                <table class="user-container profile">
+                    <tr class="profile-top">
+                        <td>
+                            <img class="profile-picture" src="./img/anwar-profile.png">
+                        </td>
+                        <td colspan="2">
+                            <h2 class="heading">Anwar Mamat
+                                <p>
+                                    <small>Room 0202</small>
+                                </p>
+                            </h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" rowspan="2">
+                            <br>
+                            <p class="description">grid and cluster computing, real-time systems, and wireless sensor networks
+                                <br>
+                                <br> Teaching
+                                <br>
+                                <br> CMSC433 Programming Language Technologies and Paradigms: Fall 2018 Spring 2018
+                                <br> CMSC330 Organization of Programming Languages: Fall 2018 Spring 2018 Fall 2017 Spring 2017 Fall 2016
+                                Spring 2016 Fall 2015 Spring 2015
+                                <br> CMSC 216 - Introduction to Computer Systems: Spring 2017 Fall 2015
+                                <br> CMSC411 Computer Architecture: Spring 2015
+                                <br> CMSC389P Apache, PHP, MySQL Winter 2015 </p>
+                        </td>
+                    </tr>
+                    <tr></tr>
+            
+                    <tr class="active-app">
+                        <td colspan="3" rowspan="2">
+                            <h2 class="heading">Leave a Message</h2>
+                            <form>
+                                <table style="table-layout: fixed; width:100%; height:100%;">
+                                    <tr>
+                                        <td colspan="2">
+                                            <input type="text" name="name" placeholder="firstName lastName" required style="text-align: center">
+                                        </td>
+                                        <td colspan="2">
+                                            <input type="email" name="email" placeholder="terp@terpmail.umd.edu" required style="text-align: center">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">
+                                            <label for="role">
+                                                <h3>Who Are You?</h3>
+                                            </label>
+                                        </td>
+                                        <td colspan="3">
+                                            <select name="role" id="role" style="width:100%; font-size: 1.8em;">
+                                                <option value="Student">Student</option>
+                                                <option value="TA">Teaching Assistant</option>
+                                                <option value="Faculty">Falculty</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <!-- insert template options ul buttons-->
+                                    <tr>
+                                        <td>
+                                            <h3>Templates:</h3>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="template1C">
+                                                <h4>Hello...</h4>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="template2C">
+                                                <h4>Can I get an Extension...</h4>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="template3C">
+                                                <h4>Graded Papers left...</h4>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <!-- end options-->
+                                    <tr>
+                                        <td colspan="4">
+                                            <textarea rows="12" name="description" required id="textC"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <button type="submit">
+                                                <h3>Send Message</h3>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <br>
+                                </table>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            </div>
             <div id="calendar" class="main-page item">
                 <table class="calendar-table">
                     <thead>

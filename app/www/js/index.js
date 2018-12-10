@@ -115,7 +115,38 @@ $(document).ready(function() {
         navigator.notification.alert('Your message has been sent to this office member', null, 'Message Sent!', 'Great');
         $('form').trigger('reset');
     });
-    
+    var temp1 = 'Hello I just dropped by and you were not here, I will try again soon.';
+    var temp2 = 'I wanted to ask if I could get an extension on our current project because ....';
+    var temp3 = 'Hello, I came by to drop off graded papers but you were not here so I left them ...';
+    $('.template1A').on("click", function() {
+        $('#textA').val(temp1);
+    });
+    $('.template2A').on("click", function() {
+        $('#textA').val(temp2);
+    });
+    $('.template3A').on("click", function() {
+        $('#textA').val(temp3);
+    });
+
+    $('.template1B').on("click", function() {
+        $('#textB').val(temp1);
+    });
+    $('.template2B').on("click", function() {
+        $('#textB').val(temp2);
+    });
+    $('.template3B').on("click", function() {
+        $('#textB').val(temp3);
+    });
+
+    $('.template1C').on("click", function() {
+        $('#textC').val(temp1);
+    });
+    $('.template2C').on("click", function() {
+        $('#textC').val(temp2);
+    });
+    $('.template3C').on("click", function() {
+        $('#textC').val(temp3);
+    });
 });
 
 var slideIndex = 0;
