@@ -1,865 +1,955 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>My Messageboard</title>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="slideShow.js"></script>
-    <script src="schedule.js"></script>
-</head>
-<body>
+    <head>
+      <title>My Messageboard</title>
+      <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="schedule.js"></script>
+      <script src="slideShow.js"></script>
 
-<div class="container">
-    <h1 class="header-text">My Message Board</h1>
-    <br>
+    </head>
+    <body>
 
-    <div id="profileImage">
-        <img src="profile-user-silhouette_318-40557.jpg" width="250" height="250" align="left"/>
-    </div>
+      <div class="container">
 
-    <h2 id='profileName'>&nbspLast Name, First Name</h2>
-    <h2 id='profileRoom'>&nbspRoom 0000</h2>
-    <label>&nbsp Bio:</label>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">My Message Board</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp Home</a></li>
+              <li><a href="index.html#mymessages"><span class="glyphicon glyphicon-envelope"></span>&nbsp Messages</a></li>
+              <li><a href="index.html#myschedule"><span class="glyphicon glyphicon-calendar"></span>&nbsp Schedule</a></li>
+              <li><a href="index.html#myslide"><span class="glyphicon glyphicon-camera"></span>&nbsp Slideshow</a></li>
+              <li><a href="index.html#myfaq"><span class="glyphicon glyphicon-th-list"></span>&nbsp FAQs</a></li>
+              <li><a href="index.html#mysettings"><span class="glyphicon glyphicon-wrench"></span>&nbspSettings</a></li>
 
-    <p id='profileBio'>Hello my name is Professor LASTNAME and I am currently teaching CMSC132 and CMSC132. I received
-        my Bachelor's
-        and Master's degree from the University of Maryland. My hobbies include listening to music, hiking, and
-        swimming.
-        I have 3 kids and 2 dogs that I love very much. </p>
-    <br><br><br><br>
+            </ul>
+          </div>
+        </nav>
 
-    <div class="text-center" id="dnd">
+        <div class="row" >
+          <div class="col-sm-3" id="profileImage">
+            <img src="golub_evan.jpg" width="250" height="300" align="left"/>
 
-    </div>
-    <div class="btn-toolbar" id="profileToolbar" style="justify-content: center; display: flex;">
-        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal3">
-            Edit Profile
-        </button>
-        <!-- <input class="btn  btn-warning" type="submit" value="Edit Event">
-         <input class="btn  btn-danger" type="submit" value="Delete Event"> -->
-    </div>
+          </div>
+          <div class="col-sm-8">
+            <h2 id='profileName'>Golub, Evan</h2>
+            <h3 id='profileRoom'>AVW 1115</h3>
+            <label>Bio:</label>
 
-    <hr>
-    <br>
-    <form action="#" class="form-check-inline">
-        <div class="form-group" style="justify-content: center; display: flex;">
-            <h4>Status:&nbsp</h4>
-            <textarea class="form-control" rows="1" id="bio" style="width:800px" align="center"></textarea>
-            &nbsp
-            <button type="button" class="btn btn-primary">
+             <p id='profileBio'>	Evan Golub, Ph.D. is a Senior Lecturer and Researcher in the Department of Computer Science at the University of Maryland and an Assistant Director of the Human-Computer Interaction Lab. He has been involved in the creation of, or modification of, numerous courses across the curriculum at the University. His research interests have ranged from artificial intelligence and concurrent programming to theoretical computer science but currently focus on children and technology, educational classroom technologies, ubiquitous computing, and creativity support tools. In these areas he works to understand how technology can be utilized by users across the spectrum of skill and experience bases to achieve a variety of goals. He disseminates his results through submissions to journals and to conferences.
+             </p>
+          </div>
+        </div>
+
+      <br><br>
+
+      <div class="text-center" id="dnd" >
+
+      </div>
+      <div class="btn-toolbar" id="profileToolbar" style="justify-content: center; display: flex;">
+          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal3">
+              Edit Profile
+          </button>
+          <!-- <input class="btn  btn-warning" type="submit" value="Edit Event">
+           <input class="btn  btn-danger" type="submit" value="Delete Event"> -->
+      </div>
+
+
+
+      <hr><br>
+        <form action="#" class="form-check-inline">
+          <div class="form-group" style="justify-content: center; display: flex;">
+              <h4>Status:&nbsp</h4>
+              <textarea class="form-control" rows="1" id="status" style="width:800px" align="center" >In the office!</textarea>
+              &nbsp
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalStatus">
                 <span class="glyphicon glyphicon-pencil"></span> Update
-            </button>
+              </button>
 
-        </div>
-    </form>
+          </div>
+        </form>
 
-    <hr>
-    <br>
-
-    <h2> My Messages </h2>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Message</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Mark</td>
-            <td>mark@umd.edu</td>
-            <td>Slide my exam under the door!</td>
-        </tr>
-        <tr>
-            <td>Sam</td>
-            <td>samiam@umd.edu</td>
-            <td>I just came to say hi</td>
-        </tr>
-        <tr>
-            <td>Larry</td>
-            <td>larry@umd.edu</td>
-            <td>Let me know when you get back!</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <hr>
-
-</div>
-
-
-<div class="container">
-    <h2>Office Schedule</h2>
-    <p>In the Office Schedule, students will be able to view planned events
-        posted by the occupants of the office. This could include things like
-        office hours and extra study sessions. </p>
-
-    <div class="btn-toolbar" id="toolbar" style="justify-content: center; display: flex;">
-        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal">
-            New Event
-        </button>
-        <!-- <input class="btn  btn-warning" type="submit" value="Edit Event">
-         <input class="btn  btn-danger" type="submit" value="Delete Event"> -->
-    </div>
-
-
-    <br>
-    <br>
-    <table class="table table-bordered table-striped" id="schedule">
-        <thead id="scheduleHead">
-        <tr id="days">
-            <th></th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-            <th>Saturday</th>
-            <th>Sunday</th>
-        </tr>
-        </thead>
-        <tbody id="scheduleBody">
-        <!-- populated by fillEmptySchedule() -->
-        </tbody>
-    </table>
-</div>
-
-<script>
-    fillEmptySchedule(); //Fills the schedule table with empty cells
-</script>
-
-<!-- Slide Show section -->
-<div class="container">
-    <hr>
-    <h2> Slide Show </h2>
-    <p> This is the slideshow that will be presented when your message board goes to sleep,
-        feel free to add any pictures and captions that you like!
-    </p>
-    <div class="row">
-        <div class="col-sm-12">
-
-            <div id="mySlider" class="carousel slide" data-ride="carousel">
-
-                <!-- wrapper for slidees-->
-                <div class="carousel-inner" id="pictureList">
-                    <div class="item active">
-                        <!-- New slide active means first slide -->
-                        <img src="slideShowPictures/sample1.jpg" alt="sample"
-                             style="display: block; margin: auto;">
-                        <div class="carousel-caption"><h4>That time in the Sahara.</h4></div>
-                    </div>
-                    <div class="item">
-                        <!-- New slide -->
-                        <img src="slideShowPictures/sample2.jpg" alt="sample"
-                             style="display: block; margin: auto;">
-                        <div class="carousel-caption"><h4>Under the Sea!</h4></div>
-
-                    </div>
-                    <div class="item">
-                        <!-- New slide -->
-                        <img src="slideShowPictures/sample3.jpg" alt="sample"
-                             style="display: block; margin: auto;">
-                        <div class="carousel-caption"><h4>Oh!</h4></div>
-
-                    </div>
-
-                </div>
-
-                <!-- next previous-->
-
-                <a class="left carousel-control" href="#mySlider" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#mySlider" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-
-            </div>
-        </div>
-    </div>
-    <div class="row">
+        <hr>
         <br>
-        <div class="col-sm-6 col-lg-6">
-            <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#modalAddPics">
-                Add Pictures
-            </button>
-        </div>
-        <div class="col-sm-6 col-lg-6">
-            <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#modalDeletePics">
-                Delete Pictures
-            </button>
-        </div>
+
+        <h2 id='mymessages'>  My Messages </h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Role</th>
+              <th scope="col">Email</th>
+              <th scope="col">Message</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mark</td>
+              <td>TA</td>
+              <td>mark@umd.edu</td>
+              <td>Slid my exam under the door!</td>
+              <td>12/08/18</td>
+              <td>5:00 PM</td>
+            </tr>
+            <tr>
+              <td>Sam</td>
+              <td>Student</td>
+              <td>samiam@umd.edu</td>
+              <td>I just came to say hi</td>
+              <td>12/07/18</td>
+              <td>2:00 PM</td>
+            </tr>
+            <tr>
+
+              <td>Larry</td>
+              <td>Faculty</td>
+              <td>larry@umd.edu</td>
+              <td>Let me know when you get back!</td>
+              <td>12/01/18</td>
+              <td>1:00 PM</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <hr>
+
+
+
     </div>
-    <br>
-</div>
-<!--FAQ Section-->
-<div class="container">
-    <hr>
-    <h2> FAQs </h2>
-    <div class="btn-toolbar" id="FAQtoolbar" style="justify-content: center; display: flex;">
-        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal2">
-            Add Question
-        </button>
+
+
+
+      <div class="container" id="myschedule">
+          <h2>Office Schedule</h2>
+          <p>In the Office Schedule, students will be able to view planned events
+              posted by the occupants of the office. This could include things like
+              office hours and extra study sessions. </p>
+
+          <div class="btn-toolbar" id="toolbar" style="justify-content: center; display: flex;">
+              <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal">
+                  New Event
+              </button>
+              <!-- <input class="btn  btn-warning" type="submit" value="Edit Event">
+               <input class="btn  btn-danger" type="submit" value="Delete Event"> -->
+          </div>
+
+
+          <br>
+          <br>
+          <table class="table table-bordered table-striped" id="schedule">
+              <thead id="scheduleHead">
+              <tr id="days">
+                  <th></th>
+                  <th>Monday</th>
+                  <th>Tuesday</th>
+                  <th>Wednesday</th>
+                  <th>Thursday</th>
+                  <th>Friday</th>
+                  <th>Saturday</th>
+                  <th>Sunday</th>
+              </tr>
+              </thead>
+              <tbody id="scheduleBody">
+              <!-- populated by fillEmptySchedule() -->
+              </tbody>
+          </table>
+      </div>
+
+      <script>
+          fillEmptySchedule();
+      </script>
+
+      <!-- Slide Show section -->
+      <div class="container" id="myslide">
+        <hr>
+        <h2> Slide Show </h2>
+        <p> This is the slideshow that will be presented when your message board goes to sleep, feel free to add any <picture>
+          pictures and captions that you like! </p>
+        </picture>
+          <div class="row">
+              <div class="col-sm-12">
+
+                  <div id="mySlider" class="carousel slide" data-ride="carousel">
+
+                      <!-- wrapper for slidees-->
+                      <div class="carousel-inner" id="pictureList">
+                          <div class="item active">
+                              <!-- New slide active means first slide -->
+                              <img src="slideShowPictures/sample1.jpg" alt="sample"
+                                   style="display: block; margin: auto;">
+                              <div class="carousel-caption"><h4>That time in the Sahara.</h4></div>
+                          </div>
+                          <div class="item">
+                              <!-- New slide -->
+                              <img src="slideShowPictures/sample2.jpg" alt="sample"
+                                   style="display: block; margin: auto;">
+                              <div class="carousel-caption"><h4>Under the Sea!</h4></div>
+
+                          </div>
+                          <div class="item">
+                              <!-- New slide -->
+                              <img src="slideShowPictures/sample3.jpg" alt="sample"
+                                   style="display: block; margin: auto;">
+                              <div class="carousel-caption"><h4>Oh!</h4></div>
+
+                          </div>
+
+                      </div>
+
+                      <!-- next previous-->
+
+                      <a class="left carousel-control" href="#mySlider" role="button" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                      <a class="right carousel-control" href="#mySlider" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <br>
+              <div class="col-sm-6 col-lg-6">
+                  <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#modalAddPics">
+                      Add Pictures
+                  </button>
+              </div>
+              <div class="col-sm-6 col-lg-6">
+                  <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#modalDeletePics">
+                      Delete Pictures
+                  </button>
+              </div>
+          </div>
+        <br>
+      </div>
+      <!--FAQ Section-->
+      <div class="container" id="myfaq">
+      <hr>
+      <h2> FAQs </h2>
+      <div class="btn-toolbar" id="FAQtoolbar" style="justify-content: center; display: flex;">
+          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal2">
+              Add Question
+          </button>
+      </div>
+      <br>
+      <table class="table table-bordered table-striped" id="faq">
+          <thead id="faqHead">
+            <tr><th>Questions</th><th>Answers</th>
+          </thead>
+          <tbody id="faqBody">
+            <tr class="table-row" data-toggle="modal" data-target="#editQuestion"><td>What is your favorite color?</td><td>Blue</td></tr>
+            <tr class="table-row" data-toggle="modal" data-target="#editQuestion"><td>When is your birthday?</td><td>October 5th</td></tr>
+            <tr class="table-row" data-toggle="modal" data-target="#editQuestion"><td>When is the last day of classes?</td><td>December 10th</td></tr>
+
+          </tbody>
+      </table>
+
     </div>
-    <br>
-    <table class="table table-bordered table-striped" id="faq">
-        <thead id="faqHead">
-        <tr>
-            <th>Questions</th>
-            <th>Answers</th>
-        </thead>
-        <tbody id="faqBody">
-
-        </tbody>
-    </table>
-
-</div>
 
 
-<div class="container">
-    <hr>
-    <h2> Settings </h2><br>
 
+    <div class="container" id="mysettings" >
+      <hr>
+      <h2> Settings </h2><br>
 
-    <div class="row">
+        <div class="row" >
 
-        <div class="col-sm-6">
-            <h7 class="apps"> Do Not Disturb</h7>
-            <p>You may turn on Do Not Disturb to turn on the red bar on your message board to inform your
-                visitors that you are currently occupied</p>
-        </div>
-        <div class="col-sm-6" align='center'>
+          <div class="col-sm-6">
+            <h7 class="apps"> Do Not Disturb </h7>
+            <p>You may turn on Do Not Distrub to turn on the red bar on your messageboard to inform your
+              visitors that you are currently occupied</p>
+          </div>
+          <div class="col-sm-6" align='center'>
             <label class="switch">
 
-                <input type="checkbox" id="dndbox" onclick="doNotDisturb()">
-                <span class="slider round"> </span>
+              <input type="checkbox" id="dndbox" onclick="doNotDisturb()">
+              <span class="slider round"> </span>
             </label>
 
         </div>
-    </div>
+      </div>
 
-    <div class="row">
+      <div class="row" >
 
         <div class="col-sm-6">
-            <h6 class="apps"> Schedule </h6>
-            <p>To enable/disable your schedule from appearing on your message board.</p>
+          <h6 class="apps"> Schedule </h6>
+          <p>To enable/disable your schedule from appering on your message board.</p>
         </div>
         <div class="col-sm-6" align='center'>
-            <label class="switch">
+          <label class="switch">
 
-                <input type="checkbox">
-                <span class="slider round"> </span>
-            </label>
+            <input type="checkbox" >
+            <span class="slider round"> </span>
+          </label>
         </div>
 
+      </div>
+      <div class="row">
+
+          <div class="col-sm-6">
+              <p>Select a unique color for the events in your schedule
+                  to differentiate your events from the rest of the faculty in your office</p>
+          </div>
+          <div id="colorPickDiv" style="position:relative;">
+              <div class="dropdown col-sm-6" align="center">
+                  <button id="colorPick" name="date"
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          data-toggle="dropdown" style="border-radius: 90%">Select Color
+                      <span class="caret"></span></button>
+                  <ul class="dropdown-menu"
+                      style="position: absolute;
+                              top: 100%; /* Bottom of button */
+                              right: 0;
+                              margin-left: 200px; /* More to the right */">
+                      <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Blue</a></li>
+                      <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Light Blue</a></li>
+                      <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Gray</a></li>
+                      <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Red</a></li>
+                      <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Yellow</a></li>
+                      <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Green</a></li>
+                  </ul>
+              </div>
+          </div>
+          <label id="eventColor" hidden></label>
+
+      </div>
+      <div class="row">
+        <div class="col-sm-6" >
+          <h6 class="apps"> Slideshow </h6>
+          <p>You may turn the slideshow feature on/off to enable or disable your photos from appearing when your
+          device is in sleep</p>
+        </div>
+        <div class="col-sm-6"align='center'>
+          <label class="switch">
+
+            <input type="checkbox">
+            <span class="slider round"> </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-6" >
+          <h6 class="apps"> Messages </h6>
+          <p>To enable/disable visitors of the office to leave a message on your messageboard</p>
+        </div>
+        <div class="col-sm-6"align='center'>
+          <label class="switch">
+
+            <input type="checkbox">
+            <span class="slider round"> </span>
+          </label>
+        </div>
+
+      </div>
+      <div class="row">
+
+        <div class="col-sm-6" >
+          <h6 class="apps"> FAQs </h6>
+          <p>To enable/disable the FAQ feature from your messageboard</p>
+        </div>
+        <div class="col-sm-6"align='center'>
+          <label class="switch">
+
+            <input type="checkbox">
+            <span class="slider round"> </span>
+          </label>
+        </div>
+
+      </div>
     </div>
 
-
-    <div class="row">
-
-        <div class="col-sm-6">
-            <h6 class="apps"> Schedule Color </h6>
-            <p>Here you can select a unique color for the events in your schedule
-                to differentiate your events from the rest of the faculty in your office</p>
-        </div>
-        <div id="colorPickDiv" style="position:relative;">
-            <div class="dropdown col-sm-6" align="center">
-                <button id="colorPick" name="date"
-                        class="btn btn-secondary dropdown-toggle"
-                        type="button"
-                        data-toggle="dropdown" style="border-radius: 90%">Select Color
-                    <span class="caret"></span></button>
-                <ul class="dropdown-menu"
-                    style="position: absolute;
-                            top: 100%; /* Bottom of button */
-                            right: 0;
-                            margin-left: 200px; /* More to the right */">
-                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Blue</a></li>
-                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Light Blue</a></li>
-                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Gray</a></li>
-                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Red</a></li>
-                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Yellow</a></li>
-                    <li onmousedown="selectColor(this); fillEmptySchedule(); displayEvents();"><a href="#/">Green</a></li>
-                </ul>
-            </div>
-        </div>
-        <label id="eventColor" hidden></label>
-
-    </div>
-
-    <div class="row">
-        <div class="col-sm-6">
-            <h6 class="apps"> Slideshow </h6>
-            <p>You may turn the slideshow feature on/off to enable or disable your photos from appearing when your
-                device is in sleep</p>
-        </div>
-        <div class="col-sm-6" align='center'>
-            <label class="switch">
-
-                <input type="checkbox">
-                <span class="slider round"> </span>
-            </label>
-        </div>
-    </div>
-
-    <div class="row">
-
-        <div class="col-sm-6">
-            <h6 class="apps"> Messages </h6>
-            <p>To enable/disable visitors of the office to leave a message on your messageboard</p>
-        </div>
-        <div class="col-sm-6" align='center'>
-            <label class="switch">
-
-                <input type="checkbox">
-                <span class="slider round"> </span>
-            </label>
-        </div>
-
-    </div>
-</div>
-
-<script>
-    function doNotDisturb() {
-        if (document.getElementById('dndbox').checked) {
-            document.getElementById('dnd').innerHTML = '<h3 style="color:white"> DO NOT DISTURB</h3>'
-            document.getElementById('dnd').style.backgroundColor = "red";
+    <script>
+      function doNotDisturb(){
+        if(document.getElementById('dndbox').checked){
+          document.getElementById('dnd').innerHTML =   '<h3 style="color:white"><strong> DO NOT DISTURB</strong></h3>'
+          document.getElementById('dnd').style.backgroundColor = "red";
         } else {
-            document.getElementById('dnd').innerHTML = '';
+          document.getElementById('dnd').innerHTML='';
         }
 
-    }
-</script>
+      }
+
+    </script>
 
 
-<label for="date" id="selectedDate" hidden></label>
-<label for="time" id="selectedTime" hidden></label>
-<input id="eventID" value="0" hidden>
+      <label for="date" id="selectedDate" hidden></label>
+      <label for="time" id="selectedTime" hidden></label>
+      <input id="eventID" value="0" hidden>
 
 
-<!-- The Modal For adding event to Schedule -->
-<div class="modal" id="modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title"><b>New Event</b></h4>
-                <button type="button" class="close" data-dismiss="modal" onclick="clearEventModal()">&times;</button>
+      <!-- The Modal For adding event to Schedule -->
+      <div class="modal" id="modal">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                      <h4 class="modal-title"><b>New Event</b></h4>
+                      <button type="button" class="close" data-dismiss="modal" onclick="clearEventModal()">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body" id="modalBody">
+
+                      <div class="form-group">
+                          <label for="date">Date: </label>
+
+                          <div class="dropdown">
+                              <button id="date" name="date" class="btn btn-primary dropdown-toggle" type="button"
+                                      data-toggle="dropdown">Select Day
+                                  <span class="caret"></span></button>
+                              <ul class="dropdown-menu">
+                                  <li onmousedown="selectDate(this)"><a href="#!">Monday</a></li>
+                                  <li onmousedown="selectDate(this)"><a href="#!">Tuesday</a></li>
+                                  <li onmousedown="selectDate(this)"><a href="#!">Wednesday</a></li>
+                                  <li onmousedown="selectDate(this)"><a href="#!">Thursday</a></li>
+                                  <li onmousedown="selectDate(this)"><a href="#!">Friday</a></li>
+                                  <li onmousedown="selectDate(this)"><a href="#!">Saturday</a></li>
+                                  <li onmousedown="selectDate(this)"><a href="#!">Sunday</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="form-group col-lg-7">
+                              <label for="time">Time: </label>
+                              <input id="time" name="time" type="time" class="form-control">
+                          </div>
+                      </div>
+
+                      <div class="row"></div>
+
+                      <div class="row">
+                          <div class="form-group col-xs-3 col-lg-7 ">
+
+                              <label for="eventName">Title: </label>
+                              <input id="eventName" name="eventName" type="text" class="form-control">
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="form-group col-xs-3 col-lg-7 ">
+                              <label for="eventInfo">Description: </label>
+                              <textarea id="eventInfo" name="eventInfo" class="form-control"></textarea>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="form-group col-xs-5 col-lg-2 ">
+                              <label for="important">Important: </label>
+                              <input type="checkbox" class="form-control" id="important">
+                          </div>
+                          <div class="form-group col-xs-5 col-lg-2 ">
+                              <label for="repeat">Repeat: </label>
+                              <input type="checkbox" class="form-control" id="repeat">
+                          </div>
+                      </div>
+                  </div>
+
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-success"
+                              onclick=" x=create();
+                              console.log(x);
+                              if(x == -1)  $('#modal').modal('show');
+                              else $('#modal').modal('hide');
+                              //Brings back the event prompt so users can fix error
+                       ">Create Event
+                      </button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearEventModal()">Close</button>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+    <!-- The Modal FAQs -->
+    <div class="modal" id="modal2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>New Question</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" onclick="clearEventModal()">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id="modalBody2">
+                    <div class="row">
+                        <div class="form-group col-lg-7">
+                            <label>Question: </label>
+                            <input id="question" name="questions" type="text" class="form-control">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-lg-7 ">
+
+                            <label for="eventName">Answer: </label>
+                            <input id="answer" name="answer" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addQuestion()">Add Question</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearQuestion()">Close</button>
+                </div>
+
             </div>
-
-            <!-- Modal body -->
-            <div class="modal-body" id="modalBody">
-
-                <div class="form-group">
-                    <label for="date">Date: </label>
-
-                    <div class="dropdown">
-                        <button id="date" name="date" class="btn btn-primary dropdown-toggle" type="button"
-                                data-toggle="dropdown">Select Day
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li onmousedown="selectDate(this)"><a href="#!">Monday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#!">Tuesday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#!">Wednesday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#!">Thursday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#!">Friday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#!">Saturday</a></li>
-                            <li onmousedown="selectDate(this)"><a href="#!">Sunday</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-7">
-                        <label for="time">Time: </label>
-                        <input id="time" name="time" type="time" class="form-control">
-                    </div>
-                </div>
-
-                <div class="row"></div>
-
-                <div class="row">
-                    <div class="form-group col-xs-3 col-lg-7 ">
-
-                        <label for="eventName">Title: </label>
-                        <input id="eventName" name="eventName" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-xs-3 col-lg-7 ">
-                        <label for="eventInfo">Description: </label>
-                        <textarea id="eventInfo" name="eventInfo" class="form-control"></textarea>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-xs-5 col-lg-2 ">
-                        <label for="important">Important: </label>
-                        <input type="checkbox" class="form-control" id="important">
-                    </div>
-                    <div class="form-group col-xs-5 col-lg-2 ">
-                        <label for="repeat">Repeat: </label>
-                        <input type="checkbox" class="form-control" id="repeat">
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success"
-                        onclick=" x=create();
-                        console.log(x);
-                        if(x == -1)  $('#modal').modal('show');
-                        else $('#modal').modal('hide');
-                        //Brings back the event prompt so users can fix error
-                 ">Create Event
-                </button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearEventModal()">Close</button>
-            </div>
-
         </div>
     </div>
-</div>
+    <!-- The Modal Edit Profile -->
+    <div class="modal" id="modal3">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-<!-- The Modal FAQs -->
-<div class="modal" id="modal2">
-    <div class="modal-dialog">
-        <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>Edit Profile</b></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title"><b>New Question</b></h4>
-                <button type="button" class="close" data-dismiss="modal" onclick="clearEventModal()">&times;</button>
-            </div>
+                <!-- Modal body -->
+                <div class="modal-body" id="modalBody3">
+                    <div class="row">
+                        <div class="form-group col-lg-7">
+                            <label>First Name: </label>
+                            <input id="first" name="first" type="text" class="form-control" value="Evan">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-7">
+                            <label>Last Name: </label>
+                            <input id="last" name="last" type="text" class="form-control" value="Golub">
+                        </div>
+                    </div>
 
-            <!-- Modal body -->
-            <div class="modal-body" id="modalBody2">
-                <div class="row">
-                    <div class="form-group col-lg-7">
-                        <label>Question: </label>
-                        <input id="question" name="questions" type="text" class="form-control">
+                    <div class="row">
+                        <div class="form-group col-lg-7">
+                            <label>Room Number: </label>
+                            <input id="roomNum" name="roomNum" type="text" class="form-control" value="1115">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-7 ">
+                            <label for="eventName">Bio: </label>
+                            <textarea id="modalbio" rows="5" name="modalbio" class="form-control">Evan Golub, Ph.D. is a Senior Lecturer and Researcher in the Department of Computer Science at the University of Maryland and an Assistant Director of the Human-Computer Interaction Lab. He has been involved in the creation of, or modification of, numerous courses across the curriculum at the University. His research interests have ranged from artificial intelligence and concurrent programming to theoretical computer science but currently focus on children and technology, educational classroom technologies, ubiquitous computing, and creativity support tools. In these areas he works to understand how technology can be utilized by users across the spectrum of skill and experience bases to achieve a variety of goals. He disseminates his results through submissions to journals and to conferences.
+                          </textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-7 ">
+                            <label>Upload Photo: </label>
+                            <label class="btn btn-default btn-file">
+                                <input id="profilePhoto" name="profilePhoto" type="file"
+                                       accept="image/x-png,image/gif,image/jpeg">
+                            </label>
+                        </div>
                     </div>
                 </div>
 
 
-                <div class="row">
-                    <div class="form-group col-lg-7 ">
-
-                        <label for="eventName">Answer: </label>
-                        <input id="answer" name="answer" type="text" class="form-control">
-                    </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="updateInfo()">Update Info</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearInfo()">Close</button>
                 </div>
-            </div>
 
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addQuestion()">Add
-                    Question
-                </button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearQuestion()">Close
-                </button>
             </div>
         </div>
     </div>
-</div>
-<!-- The Modal Edit Profile -->
-<div class="modal" id="modal3">
-    <div class="modal-dialog">
-        <div class="modal-content">
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title"><b>Edit Profile</b></h4>
-                <button type="button" class="close" data-dismiss="modal" onclick="clearEventModal()">&times;</button>
-            </div>
+    <!-- The Modal for adding pictures -->
+    <div class="modal" id="modalAddPics">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-            <!-- Modal body -->
-            <div class="modal-body" id="modalBody3">
-                <div class="row">
-                    <div class="form-group col-lg-7">
-                        <label>First Name: </label>
-                        <input id="first" name="first" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-7">
-                        <label>Last Name: </label>
-                        <input id="last" name="last" type="text" class="form-control">
-                    </div>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>Upload Pictures</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" onclick="clearAddPicModal()">&times;</button>
                 </div>
 
-                <div class="row">
-                    <div class="form-group col-lg-7">
-                        <label>Room Number: </label>
-                        <input id="roomNum" name="roomNum" type="text" class="form-control">
+                <!-- Modal body -->
+                <div class="modal-body" id="modalBodyAddPics">
+
+                    <div class="row">
+                        <div class="form-group col-sm-2 col-lg-1">
+                            <label>Captions? </label>
+                            <input id="captions" name="captions" type="checkbox" class="form-control"
+                                   onclick="
+
+                                let checkBox = document.getElementById('captions');
+                                var noCapDiv = document.getElementById('noCaptionsDiv');
+                                var capDiv = document.getElementById('captionsDiv');
+                                if(checkBox.checked){
+                                    noCapDiv.style.display = 'none';
+                                    capDiv.style.display = 'block';
+                                }
+                                else{
+                                    noCapDiv.style.display = 'block';
+                                    capDiv.style.display = 'none';
+                                }
+                                ">
+                        </div>
+                    </div>
+
+
+                    <div class="row" id="noCaptionsDiv">
+                        <div class="form-group col-sm-7 col-lg-7 ">
+
+                            <label for="pictures">Picture: </label>
+                            <label class="btn btn-default btn-file">
+                                <input id="pictures" name="pictures" type="file" multiple
+                                       accept="image/x-png,image/gif,image/jpeg">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row" id="captionsDiv" hidden>
+
+                        <div class="form-group col-sm-6 col-lg-6 ">
+
+                            <label for="captionPicture">Picture: </label>
+                            <label class="btn btn-default btn-file">
+                                <input id="captionPicture" name="captionPicture" type="file" multiple
+                                       accept="image/x-png,image/gif,image/jpeg">
+                            </label>
+                        </div>
+
+
+                        <div class="form-group col-sm-6 col-lg-6">
+                            <label for="captionContent">Caption: </label>
+                            <input class="form-control" type="text" id="captionContent">
+                            </label>
+                        </div>
+
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="form-group col-lg-7 ">
-                        <label for="eventName">Bio: </label>
-                        <textarea id="modalbio" name="modalbio" class="form-control"></textarea>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="form-group col-lg-7 ">
-                        <label>Upload Photo: </label>
-                        <label class="btn btn-default btn-file">
-                            <input id="profilePhoto" name="profilePhoto" type="file"
-                                   accept="image/x-png,image/gif,image/jpeg">
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="updateInfo()">Update Info
-                </button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearInfo()">Close</button>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- The Modal for adding pictures -->
-<div class="modal" id="modalAddPics">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title"><b>Upload Pictures</b></h4>
-                <button type="button" class="close" data-dismiss="modal" onclick="clearAddPicModal()">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body" id="modalBodyAddPics">
-
-                <div class="row">
-                    <div class="form-group col-sm-2 col-lg-1">
-                        <label>Captions? </label>
-                        <input id="captions" name="captions" type="checkbox" class="form-control"
-                               onclick="
-
-                            let checkBox = document.getElementById('captions');
-                            var noCapDiv = document.getElementById('noCaptionsDiv');
-                            var capDiv = document.getElementById('captionsDiv');
-                            if(checkBox.checked){
-                                noCapDiv.style.display = 'none';
-                                capDiv.style.display = 'block';
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="
+                            if(document.getElementById('captions').checked){
+                                addPicWithCaption();
+                                clearAddPicModal()
                             }
                             else{
-                                noCapDiv.style.display = 'block';
-                                capDiv.style.display = 'none';
+                                addPictures();
+                                clearAddPicModal()
                             }
-                            ">
-                    </div>
+                        ">Add Pictures
+                    </button>
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearAddPicModal()">Close
+                    </button>
                 </div>
 
-
-                <div class="row" id="noCaptionsDiv">
-                    <div class="form-group col-sm-7 col-lg-7 ">
-
-                        <label for="pictures">Picture: </label>
-                        <label class="btn btn-default btn-file">
-                            <input id="pictures" name="pictures" type="file" multiple
-                                   accept="image/x-png,image/gif,image/jpeg">
-                        </label>
-                    </div>
-                </div>
-
-                <div class="row" id="captionsDiv" hidden>
-
-                    <div class="form-group col-sm-6 col-lg-6 ">
-
-                        <label for="captionPicture">Picture: </label>
-                        <label class="btn btn-default btn-file">
-                            <input id="captionPicture" name="captionPicture" type="file" multiple
-                                   accept="image/x-png,image/gif,image/jpeg">
-                        </label>
-                    </div>
-
-
-                    <div class="form-group col-sm-6 col-lg-6">
-                        <label for="captionContent">Caption: </label>
-                        <input class="form-control" type="text" id="captionContent">
-                        </label>
-                    </div>
-
-                </div>
             </div>
-
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="
-                        if(document.getElementById('captions').checked){
-                            addPicWithCaption();
-                            clearAddPicModal()
-                        }
-                        else{
-                            addPictures();
-                            clearAddPicModal()
-                        }
-                    ">Add Pictures
-                </button>
-
-                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearAddPicModal()">Close
-                </button>
-            </div>
-
         </div>
     </div>
-</div>
 
-<!-- The Modal for deleting pictures -->
-<div class="modal" id="modalDeletePics">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <!-- The Modal for deleting pictures -->
+    <div class="modal" id="modalDeletePics">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title"><b>Delete Pictures</b></h4>
-                <button type="button" class="close" data-dismiss="modal" onclick="clearAddPicModal()">&times;</button>
-            </div>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>Delete Pictures</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" onclick="clearAddPicModal()">&times;</button>
+                </div>
 
-            <!-- Modal body -->
-            <div class="modal-body" id="modalBodyDeletePics">
+                <!-- Modal body -->
+                <div class="modal-body" id="modalBodyDeletePics">
 
-                <div class="row">
-                    <div class="form-group col-sm-2 col-lg-1">
-                        <label>Not Ready Yet</label>
+                    <div class="row">
+                        <div class="form-group col-sm-2 col-lg-1">
+                            <label>Not Ready Yet</label>
 
+                        </div>
                     </div>
+
+                </div>
+
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Delete Pictures
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearDeleteModal()">Cancel
+                    </button>
                 </div>
 
             </div>
-
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-dismiss="modal">Delete Pictures
-                </button>
-
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearDeleteModal()">Cancel
-                </button>
-            </div>
-
         </div>
     </div>
-</div>
+
+    <div class="modal" id="modalStatus">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title"><b>Your status has been updated!</b></h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="editQuestion">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title">Edit Question</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <p><em> **This feature is horizontal and meant to be a visual of what the edit question feature would look like. To close, please onclick
+              on the 'x' at the top right corner of this pop-up window</em></p>
+              <div class="row">
+                  <div class="form-group col-lg-7">
+                      <label>&nbsp Question: </label>
+                      <input id="roomNum" name="roomNum" type="text" class="form-control">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="form-group col-lg-7">
+                      <label>&nbsp Answer: </label>
+                      <input id="roomNum" name="roomNum" type="text" class="form-control">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Update Question
+                  </button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Delete Question
+                  </button>
+              </div>
 
 
-<script>
-    // FAQ Modal Questions
-    function addQuestion() {
-        var question = document.getElementById('question').value;
-        var answer = document.getElementById('answer').value;
+            </div>
+        </div>
+    </div>
 
-        document.getElementById('faqBody').innerHTML = document.getElementById('faqBody').innerHTML + "<tr><td>" + question + "</td><td>" + answer + "</td></tr>";
-        clearQuestion();
-    }
+    <script>
 
-    function clearQuestion() {
-        document.getElementById('modalBody2').innerHTML = "<div class=\"row\"><div class=\"form-group col-lg-7\"><label>Question:</label>\n" +
-            "<input id=\"question\" name=\"questions\" type=\"text\" class=\"form-control\"></div></div><div class=\"row\">\n" +
-            "<div class=\"form-group col-lg-7 \">\n" + "<label for=\"eventName\">Answer: </label>\n" +
-            "<input id=\"answer\" name=\"answer\" type=\"text\" class=\"form-control\"></div></div>"
-    }
+        // FAQ Modal Questions
+        function addQuestion(){
+          var question = document.getElementById('question').value;
+          var answer = document.getElementById('answer').value;
 
-    // Profile Modal Functions
-
-    function updateInfo() {
-        var firstname = document.getElementById('first').value;
-        var lastname = document.getElementById('last').value;
-        var bio = document.getElementById('modalbio').value;
-        var roomNumber = document.getElementById('roomNum').value;
-        var image = document.getElementById('profilePhoto').files;
-
-        if (lastname != '' && firstname != '') {
-            document.getElementById('profileName').innerHTML = '&nbsp' + lastname + ', ' + firstname;
+          document.getElementById('faqBody').innerHTML =   document.getElementById('faqBody').innerHTML + "<tr class=\"table-row\" data-toggle=\"modal\" data-target=\"#editQuestion\"><td>" + question + "</td><td>" + answer +"</td></tr>";
+          clearQuestion();
+        }
+        function clearQuestion(){
+            document.getElementById('modalBody2').innerHTML = "<div class=\"row\"><div class=\"form-group col-lg-7\"><label>Question:</label>\n"+
+                    "<input id=\"question\" name=\"questions\" type=\"text\" class=\"form-control\"></div></div><div class=\"row\">\n"+
+                "<div class=\"form-group col-lg-7 \">\n"+  "<label for=\"eventName\">Answer: </label>\n"+
+                    "<input id=\"answer\" name=\"answer\" type=\"text\" class=\"form-control\"></div></div>"
         }
 
-        if (roomNumber != '') {
-            document.getElementById('profileRoom').innerHTML = "&nbspRoom " + roomNumber;
-        }
-        if (bio != '') {
+        // Profile Modal Functions
+
+        function updateInfo(){
+          var firstname= document.getElementById('first').value;
+          var lastname= document.getElementById('last').value;
+          var bio = document.getElementById('modalbio').value;
+          var roomNumber = document.getElementById('roomNum').value;
+          var image = document.getElementById('profilePhoto').files;
+
+          if(lastname != '' && firstname != ''){
+            document.getElementById('profileName').innerHTML ='&nbsp'+ lastname+', '+firstname;
+          }
+
+          if(roomNumber != ''){
+            document.getElementById('profileRoom').innerHTML =  roomNumber;
+          }
+          if(bio != ''){
             document.getElementById('profileBio').innerHTML = bio;
-        }
+          }
 
-        if (image.length == 0) {
-            document.getElementById('profileImage').innerHTML = '<img src=\"profile-user-silhouette_318-40557.jpg\" width=\"250\" height=\"250\" align=\"left\"/>'
-        } else {
+          if(image.length == 0){
+            document.getElementById('profileImage').innerHTML = '<img src=\"golub_evan.jpg\" width=\"250\" height=\"300\" align=\"left\"/>'
+          } else {
             let photo = URL.createObjectURL(image[0]);
-            document.getElementById('profileImage').innerHTML = '<img src=\"' + photo + '\"width=\"250\" height=\"250\" align=\"left\"/>'
+            document.getElementById('profileImage').innerHTML = '<img src=\"' + photo +'\"width=\"250\" height=\"300\" align=\"left\"/>'
+          }
         }
-    }
 
 
-    function clearInfo() {
-        document.getElementById('modalBody3').innerHTML = "<div class=\"row\"> <div class=\"form-group col-lg-7\">" +
-            "<label>First Name: </label><input id=\"first\" name=\"first\" type=\"text\" class=\"form-control\">" +
-            "</div></div><div class=\"row\"><div class=\"form-group col-lg-7\"><label>Last Name: </label>" +
-            "<input id=\"last\" name=\"last\" type=\"text\" class=\"form-control\"></div></div><div class=\"row\">" +
-            "<div class=\"form-group col-lg-7\"><label>Room Number: </label><input id=\"roomNum\" name=\"roomNum\" type=\"text\" class=\"form-control\">" +
-            "</div></div><div class=\"row\"><div class=\"form-group col-lg-7 \"><label for=\"eventName\">Bio: </label>" +
-            "<textarea id=\"modalbio\" name=\"modalbio\" class=\"form-control\"></textarea></div></div>";
-    }
+        function clearInfo(){
+          document.getElementById('modalBody3').innerHTML = "<div class=\"row\"> <div class=\"form-group col-lg-7\">"+
+                      "<label>First Name: </label><input id=\"first\" name=\"first\" type=\"text\" class=\"form-control\">"+
+                  "</div></div><div class=\"row\"><div class=\"form-group col-lg-7\"><label>Last Name: </label>"+
+                  "<input id=\"last\" name=\"last\" type=\"text\" class=\"form-control\"></div></div><div class=\"row\">"+
+                  "<div class=\"form-group col-lg-7\"><label>Room Number: </label><input id=\"roomNum\" name=\"roomNum\" type=\"text\" class=\"form-control\">" +
+                  "</div></div><div class=\"row\"><div class=\"form-group col-lg-7 \"><label for=\"eventName\">Bio: </label>"+
+                      "<textarea id=\"modalbio\" name=\"modalbio\" class=\"form-control\"></textarea></div></div>";
+        }
 
-</script>
-</body>
 
-<style>
+
+    </script>
+    </body>
+
+    <style>
     /* The switch - the box around the slider */
     .switch {
-        position: relative;
-        display: inline-block;
-        width: 80px;
-        height: 34px;
+      position: relative;
+      display: inline-block;
+      width: 80px;
+      height: 34px;
 
     }
 
     /* Hide default HTML checkbox */
     .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
+      opacity: 0;
+      width: 0;
+      height: 0;
     }
 
     /* The slider */
     .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: lightgrey;
-        -webkit-transition: .4s;
-        transition: .4s;
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: lightgrey;
+      -webkit-transition: .4s;
+      transition: .4s;
     }
 
     .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
     }
 
     input:checked + .slider {
-        background-color: lightblue;
+      background-color: lightblue;
     }
 
     input:focus + .slider {
-        box-shadow: 0 0 1px lightblue;
+      box-shadow: 0 0 1px lightblue;
     }
 
     input:checked + .slider:before {
-        -webkit-transform: translateX(40px);
-        -ms-transform: translateX(40px);
-        transform: translateX(40px);
+      -webkit-transform: translateX(40px);
+      -ms-transform: translateX(40px);
+      transform: translateX(40px);
     }
 
     /* Rounded sliders */
     .slider.round {
-        border-radius: 34px;
+      border-radius: 34px;
     }
 
     .slider.round:before {
-        border-radius: 50%;
+      border-radius: 50%;
     }
 
     .slider:after {
-        content: 'OFF';
-        color: white;
-        display: block;
-        position: absolute;
-        transform: translate(-10%, -50%);
-        top: 50%;
-        left: 50%;
-        font-size: 10px;
-        font-family: Verdana, sans-serif;
+     content:'OFF';
+     color: white;
+     display: block;
+     position: absolute;
+     transform: translate(-10%,-50%);
+     top: 50%;
+     left: 50%;
+     font-size: 10px;
+     font-family: Verdana, sans-serif;
     }
 
-    input:checked + .slider:after {
-        content: 'ON';
-        color: white;
-        display: block;
-        position: absolute;
-        transform: translate(-95%, -50%);
-        top: 50%;
-        left: 50%;
-        font-size: 10px;
-        font-family: Verdana, sans-serif;
+    input:checked + .slider:after{
+      content:'ON';
+      color: white;
+      display: block;
+      position: absolute;
+      transform: translate(-95%,-50%);
+      top: 50%;
+      left: 50%;
+      font-size: 10px;
+      font-family: Verdana, sans-serif;
     }
 
     hr {
-        display: block;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        margin-left: auto;
-        margin-right: auto;
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
 
-        border-width: 5px;
+    border-width: 5px;
     }
-
     h1 {
-        text-align: center;
-        font-family: "Times New Roman", Times, serif;
+      text-align: center;
+      font-family: "Times New Roman", Times, serif;
+
+    }
+    h2{
+      font-family: "Times New Roman", Times, serif;
+      font-weight: bold;
+
+    }
+    h3{
+      font-family: "Times New Roman", Times, serif;
 
     }
 
-    h2 {
-        font-family: "Times New Roman", Times, serif;
-        font-weight: bold;
+    label{
+      font-family: "Times New Roman", Times, serif;
 
     }
 
-    h3 {
-        font-family: "Times New Roman", Times, serif;
-
-    }
-
-    label {
-        font-family: "Times New Roman", Times, serif;
-
+    .table-row{
+      cursor:pointer;
     }
 
     .dnd {
-        font-size: 35px;
-        display: inline-block;
-        text-align: center;
+      font-size: 35px;
+      display: inline-block;
+      text-align: center;
     }
 
     .apps {
-        font-size: 20px;
-        display: inline-block;
-        font-family: "Times New Roman", Times, serif;
-        text-align: left;
+      font-size: 20px;
+      display: inline-block;
+      font-family: "Times New Roman", Times, serif;
+      text-align: left;
     }
 
-    .section {
-        font-size: 25px;
-        display: inline-block;
-        text-align: left;
+    .section{
+      font-size: 25px;
+      display: inline-block;
+      text-align: left;
     }
 
-</style>
+    </style>
 </html>
-
-
